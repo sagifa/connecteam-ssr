@@ -44,7 +44,7 @@ const Hero = () => {
     const scrollTop = e.currentTarget.scrollTop;
     console.log({ clientHeight, scrollHeight, scrollTop });
   };
-
+  //TODO!! change color config
   return (
     <>
       <Flex

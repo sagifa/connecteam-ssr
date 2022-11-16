@@ -27,6 +27,7 @@ const Main = () => {
       <Hero />
       <Section {...DataA} isRtl={false} />
       <Section {...DataB} isRtl={true} />
+      <Section {...DataC} isRtl={true} />
       <Section {...DataD} isRtl={false} />
     </Box>
   );

@@ -1,7 +1,6 @@
 import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import heroData from "../../public/home.json";
-import { MainContainerStyle } from "../../styles/style";
 import { Icon1 } from "../icons/Icon1";
 import { Icon2 } from "../icons/Icon2";
 import { Icon3 } from "../icons/Icon3";
@@ -9,17 +8,11 @@ import { Icon4 } from "../icons/Icon4";
 import { Icon5 } from "../icons/Icon5";
 import { Icon6 } from "../icons/Icon6";
 import { Icon7 } from "../icons/Icon7";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import {
-  ContainerStyle,
-  DescriptionStyle,
-  LabelStyle,
-  TitleStyle,
-} from "./style";
-import Image from "next/image";
 import { baseUrl } from "../../utils/config";
 import { SectionData } from "../../pages/Main";
-import CircleImage from "./CircleImage";
+import SectionRegular from "./SectionRegular";
+import SectionFullColor from "./SectionFullColor";
+import CostumeIcon from "../CostumeIcon";
 
 const parseHtml = (value: string) => {
   let array = value.split("<p>").join("").split("</p>");
@@ -28,7 +21,7 @@ const parseHtml = (value: string) => {
   return res;
 };
 
-type SectionProps = SectionData & { isRtl: boolean };
+export type SectionProps = SectionData & { isRtl: boolean };
 
 const Section = ({
   title,
@@ -41,17 +34,25 @@ const Section = ({
   isRtl,
 }: SectionProps) => {
   const colorTheme = `hsl(${colorHue},100%,43%,1)`;
-  const colorThemeBlur = `hsl(${colorHue},100%,97%,1)`;
-  const titleFormat = title.toLowerCase().replaceAll(" ", "-");
+  const colorThemeLight = `hsl(${colorHue},100%,97%,1)`;
+  const colorThemeDarker = `hsl(${colorHue},100%,21%,1)`;
+  const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
   const iconNameFormat = icon.replaceAll("-", "");
   const descriptionParse = parseHtml(description);
-  const urlPhoto = baseUrl + "/jpg/" + titleFormat + "-small.jpg";
+  const urlPhoto = baseUrl + "/jpg/" + titleFileFormat + "-small.jpg";
 
-  let linkLabel = heroData.content.items.map((item) => {
-    if (item.name === titleFormat) {
-      return item.linkLabel;
+  const demoData = heroData;
+  const buttonContents = heroData.content.items.find((item) => {
+    if (item.name === titleFileFormat) {
+      return {
+        linkLabel: item.linkLabel,
+        links: item.additionalLinks,
+        layout: item.layout,
+      };
     }
   });
+
+  const variant = buttonContents?.layout || "regular";
 
   const components: any = {
     icon1: Icon1,
@@ -64,51 +65,82 @@ const Section = ({
   };
 
   const IconSvg = components[iconNameFormat];
-  const myStyle = ContainerStyle;
-  return (
-    <Flex
-      {...MainContainerStyle}
-      {...ContainerStyle}
-      direction={isRtl ? "row-reverse" : "row"}
-    >
-      <Flex className="left-side" direction="column" w="40vw">
-        <Flex className="title">
-          <Flex
-            bgColor={colorThemeBlur}
-            borderRadius="50%"
-            w="3rem"
-            h="3rem"
-            justify="center"
-            alignItems="center"
-            mr="1rem"
-          >
-            <IconSvg color={colorTheme} boxSize="2rem" />
-          </Flex>
-          <Box>
-            <Text {...LabelStyle}>{label}</Text>
-            <Text {...TitleStyle} color={colorTheme}>
-              {title}
-            </Text>
-          </Box>
-        </Flex>
-        <Box className="content-box" mt="2rem">
-          <Text {...DescriptionStyle}>{descriptionParse}</Text>
-          <Flex mt="1rem">
-            <Link color={colorTheme} href="#">
-              {linkLabel}
-              <ArrowForwardIcon />
-            </Link>
-          </Flex>
-        </Box>
-      </Flex>
-      <CircleImage
-        color={colorTheme}
-        url={urlPhoto}
-        isRtl={isRtl}
-        IconElement={IconSvg}
-      />
-    </Flex>
+  console.log({ variant });
+
+  return variant == "regular" ? (
+    <SectionRegular
+      isRtl={isRtl}
+      colorTheme={colorTheme}
+      colorThemeLight={colorThemeLight}
+      IconSvg={IconSvg}
+      label={label}
+      title={title}
+      description={descriptionParse}
+      linkLabel={buttonContents?.linkLabel}
+      urlPhoto={urlPhoto}
+    />
+  ) : (
+    <SectionFullColor
+      Icon={IconSvg}
+      primaryColor={colorTheme}
+      secondaryColor={colorThemeDarker}
+      label={label}
+      title={title}
+      description={descriptionParse}
+      linkLabel={buttonContents ? buttonContents.linkLabel : ""}
+      additionalLinks={
+        buttonContents?.additionalLinks
+          ? buttonContents.additionalLinks
+          : [{ href: "", label: "", icon: "" }]
+      }
+      urlPhoto={urlPhoto}
+    />
   );
+
+  // <Flex
+  //   {...MainContainerStyle}
+  //   {...ContainerStyle}
+  //   direction={isRtl ? "row-reverse" : "row"}
+  //   h="40vh"
+  // >
+
+  //   <Flex className="left-side" direction="column" w="40vw" h="20px">
+  //     <Flex className="title">
+  //       <Flex
+  //         bgColor={colorThemeLight}
+  //         borderRadius="50%"
+  //         w="3rem"
+  //         h="3rem"
+  //         justify="center"
+  //         alignItems="center"
+  //         mr="1rem"
+  //       >
+  //         <IconSvg color={colorTheme} boxSize="2rem" />
+  //       </Flex>
+  //       <Box>
+  //         <Text {...LabelStyle}>{label}</Text>
+  //         <Text {...TitleStyle} color={colorTheme}>
+  //           {title}
+  //         </Text>
+  //       </Box>
+  //     </Flex>
+  //     <Box className="content-box" mt="2rem">
+  //       <Text {...DescriptionStyle}>{descriptionParse}</Text>
+  //       <Flex mt="1rem">
+  //         <Link color={colorTheme} href="#">
+  //           {buttonContents?.linkLabel}
+  //           <ArrowForwardIcon />
+  //         </Link>
+  //       </Flex>
+  //     </Box>
+  //   </Flex>
+  //   <CircleImage
+  //     color={colorTheme}
+  //     url={urlPhoto}
+  //     isRtl={isRtl}
+  //     IconElement={IconSvg}
+  //   />
+  // </Flex>
 };
 
 export default Section;
