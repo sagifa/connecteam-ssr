@@ -1,5 +1,5 @@
 import { Icon, IconProps } from "@chakra-ui/react";
-export const Icon_1 = (props: IconProps) => (
+export const Icon1 = (props: IconProps) => (
   <Icon viewBox="0 0 72 72" {...props}>
     <path
       fill="currentColor"
