@@ -37,7 +37,6 @@ const Section = ({
   const colorThemeLight = `hsl(${colorHue},100%,97%,1)`;
   const colorThemeDarker = `hsl(${colorHue},100%,21%,1)`;
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
-  const iconNameFormat = icon.replaceAll("-", "");
   const descriptionParse = parseHtml(description);
   const urlPhoto = baseUrl + "/jpg/" + titleFileFormat + "-small.jpg";
 
@@ -54,25 +53,12 @@ const Section = ({
 
   const variant = buttonContents?.layout || "regular";
 
-  const components: any = {
-    icon1: Icon1,
-    icon2: Icon2,
-    icon3: Icon3,
-    icon4: Icon4,
-    icon5: Icon5,
-    icon6: Icon6,
-    icon7: Icon7,
-  };
-
-  const IconSvg = components[iconNameFormat];
-  console.log({ variant });
-
   return variant == "regular" ? (
     <SectionRegular
       isRtl={isRtl}
       colorTheme={colorTheme}
       colorThemeLight={colorThemeLight}
-      IconSvg={IconSvg}
+      icon={icon}
       label={label}
       title={title}
       description={descriptionParse}
@@ -81,7 +67,7 @@ const Section = ({
     />
   ) : (
     <SectionFullColor
-      Icon={IconSvg}
+      icon={icon}
       primaryColor={colorTheme}
       secondaryColor={colorThemeDarker}
       label={label}
@@ -96,51 +82,6 @@ const Section = ({
       urlPhoto={urlPhoto}
     />
   );
-
-  // <Flex
-  //   {...MainContainerStyle}
-  //   {...ContainerStyle}
-  //   direction={isRtl ? "row-reverse" : "row"}
-  //   h="40vh"
-  // >
-
-  //   <Flex className="left-side" direction="column" w="40vw" h="20px">
-  //     <Flex className="title">
-  //       <Flex
-  //         bgColor={colorThemeLight}
-  //         borderRadius="50%"
-  //         w="3rem"
-  //         h="3rem"
-  //         justify="center"
-  //         alignItems="center"
-  //         mr="1rem"
-  //       >
-  //         <IconSvg color={colorTheme} boxSize="2rem" />
-  //       </Flex>
-  //       <Box>
-  //         <Text {...LabelStyle}>{label}</Text>
-  //         <Text {...TitleStyle} color={colorTheme}>
-  //           {title}
-  //         </Text>
-  //       </Box>
-  //     </Flex>
-  //     <Box className="content-box" mt="2rem">
-  //       <Text {...DescriptionStyle}>{descriptionParse}</Text>
-  //       <Flex mt="1rem">
-  //         <Link color={colorTheme} href="#">
-  //           {buttonContents?.linkLabel}
-  //           <ArrowForwardIcon />
-  //         </Link>
-  //       </Flex>
-  //     </Box>
-  //   </Flex>
-  //   <CircleImage
-  //     color={colorTheme}
-  //     url={urlPhoto}
-  //     isRtl={isRtl}
-  //     IconElement={IconSvg}
-  //   />
-  // </Flex>
 };
 
 export default Section;

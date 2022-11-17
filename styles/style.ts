@@ -52,11 +52,9 @@ export const PrimaryButtonLinkStyle: ButtonProps = {
 };
 
 export const SecondaryButtonLinkStyle: ButtonProps = {
-  color: "#ED8E00",
   size: "md",
-  // bgColor: "#E3E3E3",
   background: "rgba(255, 255, 255, 0.14)",
-  border: "2px solid #FF9900",
+  border: "2px solid",
   boxShadow:
     "0px 3px 12px rgba(0, 0, 0, 0.07), 0px 2px 4px rgba(0, 0, 0, 0.07)",
   backdropFilter: "blur(8px)",

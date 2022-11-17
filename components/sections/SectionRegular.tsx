@@ -9,12 +9,13 @@ import {
   TitleStyle,
 } from "./style";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import CostumeIcon from "../CostumeIcon";
 
 type SectionRegularProps = {
   isRtl: boolean;
   colorTheme: string;
   colorThemeLight: string;
-  IconSvg: (props: IconProps) => JSX.Element;
+  icon: string;
   label: string;
   title: string;
   description: string;
@@ -26,7 +27,7 @@ const SectionRegular = ({
   isRtl,
   colorTheme,
   colorThemeLight,
-  IconSvg,
+  icon,
   label,
   title,
   description,
@@ -51,7 +52,10 @@ const SectionRegular = ({
             alignItems="center"
             mr="1rem"
           >
-            <IconSvg color={colorTheme} boxSize="2rem" />
+            <CostumeIcon
+              name={icon}
+              props={{ color: colorTheme, boxSize: "2rem" }}
+            />
           </Flex>
           <Box>
             <Text {...LabelStyle}>{label}</Text>
@@ -74,7 +78,7 @@ const SectionRegular = ({
         color={colorTheme}
         url={urlPhoto}
         isRtl={isRtl}
-        IconElement={IconSvg}
+        icon={icon}
       />
     </Flex>
   );
