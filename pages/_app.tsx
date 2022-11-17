@@ -13,11 +13,11 @@ const theme = extendTheme({
       900: "#1a202c",
     },
   },
-  // fonts: {
-  //   text: `'Inter', ${base.fonts?.body}`,
-  //   body: `'Merriweather', ${base.fonts?.body}`,
-  //   button: `'Merriweather', ${base.fonts?.body}`,
-  // },
+  fonts: {
+    text: `'Inter', ${base.fonts?.body}`,
+    body: `'Merriweather', ${base.fonts?.body}`,
+    button: `'Merriweather', sans-serif`,
+  },
 });
 export default function App({ Component, pageProps }: AppProps) {
   return (

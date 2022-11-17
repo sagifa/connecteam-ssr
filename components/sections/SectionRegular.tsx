@@ -13,20 +13,18 @@ import CostumeIcon from "../CostumeIcon";
 
 type SectionRegularProps = {
   isRtl: boolean;
-  colorTheme: string;
-  colorThemeLight: string;
+  colorHue: number;
   icon: string;
   label: string;
   title: string;
   description: string;
   urlPhoto: string;
-  linkLabel?: string; //TODO!! Must
+  linkLabel: string;
 };
 
 const SectionRegular = ({
   isRtl,
-  colorTheme,
-  colorThemeLight,
+  colorHue,
   icon,
   label,
   title,
@@ -34,6 +32,9 @@ const SectionRegular = ({
   linkLabel,
   urlPhoto,
 }: SectionRegularProps) => {
+  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
+  const secondaryColor = `hsl(${colorHue},100%,97%,1)`;
+
   return (
     <Flex
       {...MainContainerStyle}
@@ -44,7 +45,7 @@ const SectionRegular = ({
       <Flex className="left-side" direction="column" w="40vw" h="20px">
         <Flex className="title">
           <Flex
-            bgColor={colorThemeLight}
+            bgColor={secondaryColor}
             borderRadius="50%"
             w="3rem"
             h="3rem"
@@ -54,12 +55,12 @@ const SectionRegular = ({
           >
             <CostumeIcon
               name={icon}
-              props={{ color: colorTheme, boxSize: "2rem" }}
+              props={{ color: primaryColor, boxSize: "2rem" }}
             />
           </Flex>
           <Box>
             <Text {...LabelStyle}>{label}</Text>
-            <Text {...TitleStyle} color={colorTheme}>
+            <Text {...TitleStyle} color={primaryColor}>
               {title}
             </Text>
           </Box>
@@ -67,7 +68,7 @@ const SectionRegular = ({
         <Box className="content-box" mt="2rem">
           <Text {...DescriptionStyle}>{description}</Text>
           <Flex mt="1rem">
-            <Link color={colorTheme} href="#">
+            <Link color={primaryColor} href="#">
               {linkLabel}
               <ArrowForwardIcon />
             </Link>
@@ -75,7 +76,7 @@ const SectionRegular = ({
         </Box>
       </Flex>
       <CircleImage
-        color={colorTheme}
+        color={primaryColor}
         url={urlPhoto}
         isRtl={isRtl}
         icon={icon}

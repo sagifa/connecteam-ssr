@@ -5,19 +5,18 @@ import { ArrowRight } from "./icons/ArrowRight";
 
 export type PrimaryButtonProps = {
   label: string;
-  color: string;
+  colorHue: number;
 };
-const PrimaryButton = ({ label, color }: PrimaryButtonProps) => {
-  const hueColorFormat = color.replace("hsl(", "").split(",")[0];
-  const backgroundColor = `hsl(${hueColorFormat},100%,50%,1)`;
-  const hoverColor = `hsl(${hueColorFormat},100%,47%,1)`;
+const PrimaryButton = ({ label, colorHue }: PrimaryButtonProps) => {
+  const backgroundColor = `hsl(${colorHue},100%,50%,1)`;
+  const hoverColor = `hsl(${colorHue},100%,47%,1)`;
 
   return (
     <Button
       {...PrimaryButtonLinkStyle}
       bgColor={backgroundColor}
       rightIcon={<ArrowRight color="white" />}
-      sx={{ _hover: hoverColor }}
+      _hover={{ bgColor: hoverColor }}
     >
       <Text {...ButtonContentStyle}>{label}</Text>
     </Button>

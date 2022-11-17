@@ -3,6 +3,7 @@ import {
   Button,
   Center,
   Flex,
+  HStack,
   IconProps,
   Img,
   Text,
@@ -20,10 +21,9 @@ import {
 } from "./style";
 import { Icon6 } from "../icons/Icon6";
 
-type SectionFullColorProps = {
+type SectionProps = {
   icon: string;
-  primaryColor: string;
-  secondaryColor: string;
+  colorHue: number;
   label: string;
   title: string;
   description: string;
@@ -38,31 +38,19 @@ type SectionFullColorProps = {
 
 const SectionFullColor = ({
   icon,
-  primaryColor,
-  secondaryColor,
+  colorHue,
   label,
   title,
   description,
   linkLabel,
   additionalLinks,
   urlPhoto,
-}: SectionFullColorProps) => {
-  console.log(additionalLinks);
+}: SectionProps) => {
+  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
+  const secondaryColor = `hsl(${colorHue},100%,21%,1)`;
 
   return (
     <Box position="relative">
-      <Img
-        src={urlPhoto}
-        alt="bg"
-        position="absolute"
-        rounded="full"
-        right="-15vw"
-        top="-10vh"
-        boxSize="120vh"
-        overflow="hidden"
-        // opacity="0.1"
-        // backgroundPosition="center"
-      />
       <Flex
         {...MainContainerStyle}
         bgColor={secondaryColor}
@@ -71,6 +59,19 @@ const SectionFullColor = ({
         direction="column"
         mt="5rem"
       >
+        <Img
+          src={urlPhoto}
+          alt="bg"
+          position="absolute"
+          rounded="full"
+          right="-10%"
+          overflow="hidden"
+          opacity="0.05"
+          h="100vh"
+          sx={{
+            filter: "grayscale(90%)",
+          }}
+        />
         <Center bgColor={primaryColor} rounded="full" boxSize="7rem" mt="4rem">
           <CostumeIcon
             name={icon}
@@ -84,8 +85,8 @@ const SectionFullColor = ({
         <Text {...DescriptionSecondaryStyle}>{description}</Text>
         <Box {...SeparateSecondaryStyle} />
 
-        <Box mt="2rem">
-          <PrimaryButton label={linkLabel} color={primaryColor} />
+        <HStack mt="2rem" gap="1rem">
+          <PrimaryButton label={linkLabel} colorHue={colorHue} />
           {additionalLinks.map((btn) => (
             <SecondaryButton
               label={btn.label}
@@ -94,7 +95,7 @@ const SectionFullColor = ({
               key={btn.label}
             />
           ))}
-        </Box>
+        </HStack>
       </Flex>
     </Box>
   );
