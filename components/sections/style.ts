@@ -1,4 +1,4 @@
-import { BoxProps, FlexProps, TextProps } from "@chakra-ui/react";
+import { BoxProps, FlexProps, InputProps, TextProps } from "@chakra-ui/react";
 import { MainContainerStyle } from "../../styles/style";
 
 export const ContainerStyle: FlexProps = {
@@ -83,4 +83,43 @@ export const SeparateSecondaryStyle: BoxProps = {
   mt: "2rem",
   background: "rgba(255, 255, 255, 0.08)",
   borderRadius: "38px",
+};
+
+export const FormTitleStyle: TextProps = {
+  fontFamily: "Inter",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "19px",
+  lineHeight: "23px",
+  color: "#6A6A6A",
+};
+
+export const InputBoxStyle: InputProps = {
+  // display: "flex",
+  // flexDirection: "row",
+  // alignItems: "center",
+  padding: "16px 24px",
+  isolation: "isolate", //TODO!! no need
+  // width: "341px",
+  // height: "48px",
+  // background: "#FFFFFF",
+  border: "1px solid #EAEAEA",
+  borderRadius: "24px",
+  // placeholder
+
+  fontFamily: "Inter",
+  fontStyle: "normal",
+  fontWeight: "600",
+  fontSize: "16px",
+  lineHeight: "23px",
+  color: "#6A6A6A",
+
+  //   font-family: 'Inter';
+  // font-style: normal;
+  // font-weight: 600;
+  // font-size: 16px;
+  // line-height: 16px;
+  // /* identical to box height, or 100% */
+
+  // color: #242424;
 };

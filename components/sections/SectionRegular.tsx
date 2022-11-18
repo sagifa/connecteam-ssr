@@ -8,8 +8,8 @@ import {
   LabelStyle,
   TitleStyle,
 } from "./style";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
 import CostumeIcon from "../CostumeIcon";
+import { ArrowRight } from "../icons/ArrowRight";
 
 type SectionRegularProps = {
   isRtl: boolean;
@@ -70,7 +70,7 @@ const SectionRegular = ({
           <Flex mt="1rem">
             <Link color={primaryColor} href="#">
               {linkLabel}
-              <ArrowForwardIcon />
+              <ArrowRight ml="0.5rem" />
             </Link>
           </Flex>
         </Box>

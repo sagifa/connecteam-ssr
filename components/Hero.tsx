@@ -21,14 +21,14 @@ import {
 } from "../styles/style";
 import headData from "../public/home.json";
 import Image from "next/image";
-import { baseUrl } from "../utils/config";
+import { BASE_URL } from "../utils/consts";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Icon1 } from "./icons/Icon1";
 import { Icon3 } from "./icons/Icon3";
 import { Icon5 } from "./icons/Icon5";
 import { Icon4 } from "./icons/Icon4";
 import { Icon2 } from "./icons/Icon2";
-import SectionA from "./sections/SectionWrapper";
+import SectionA from "./sections/Section";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 
@@ -37,14 +37,13 @@ const Hero = () => {
   // const [isHoverA, setHoverA] = useBoolean();
   const [isHoverB, setHoverB] = useBoolean();
 
-  const backgroundUrl = `${baseUrl}/jpg/home-large.jpg`;
+  const backgroundUrl = `${BASE_URL}/jpg/home-large.jpg`;
 
   const handleUIEvent = (e: React.UIEvent<HTMLDivElement>) => {
     // Do something
     const clientHeight = e.currentTarget.clientHeight;
     const scrollHeight = e.currentTarget.scrollHeight;
     const scrollTop = e.currentTarget.scrollTop;
-    console.log({ clientHeight, scrollHeight, scrollTop });
   };
   //TODO!! change color config
 
@@ -61,7 +60,12 @@ const Hero = () => {
         mx="auto"
         justifyContent="center"
       >
-        <Flex alignItems="center" gap="0.2rem">
+        <Flex
+          alignItems="center"
+          gap="0.2rem"
+          cursor="pointer"
+          onClick={() => {}}
+        >
           <Icon3 color="#7A2DDB" boxSize="2rem" />
           <Text color="#7A2DDB">{headData.content.items[0].name}</Text>
         </Flex>

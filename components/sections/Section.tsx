@@ -1,5 +1,5 @@
 import React from "react";
-import { baseUrl } from "../../utils/config";
+import { BASE_URL } from "../../utils/consts";
 import SectionRegular from "./SectionRegular";
 import SectionFullColor from "./SectionFullColor";
 
@@ -16,50 +16,47 @@ type SectionWrapperProps = {
   icon: string;
   label: string;
   description: string;
-  items: {
-    name: string;
-    linkLabel: string;
-    layout: string;
-    additionalLinks?: {
-      href: string;
-      label: string;
-      icon: string;
-    }[];
+  linkLabel: string;
+  layout: string;
+  additionalLinks?: {
+    href: string;
+    label: string;
+    icon: string;
   }[];
   isRtl: boolean;
 };
 
-const SectionWrapper = ({
+const Section = ({
   title,
   colorHue,
   icon,
   label,
   description,
-  items,
+  linkLabel,
+  layout,
+  additionalLinks,
   isRtl,
 }: SectionWrapperProps) => {
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
   const descriptionParse = parseHtml(description);
-  const urlPhoto = baseUrl + "/jpg/" + titleFileFormat + "-small.jpg";
-  const buttonContents = items.find((item) => {
-    if (item.name === titleFileFormat) {
-      return {
-        linkLabel: item.linkLabel,
-        links: item.additionalLinks,
-        layout: item.layout,
-      };
-    }
-  });
-  const variant = buttonContents?.layout || "regular";
-
-  return variant == "regular" ? (
+  const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg";
+  // const buttonContents = items.find((item) => {
+  //   if (item.name === titleFileFormat) {
+  //     return {
+  //       linkLabel: item.linkLabel,
+  //       links: item.additionalLinks,
+  //       layout: item.layout,
+  //     };
+  //   }
+  // });
+  return layout == "regular" ? (
     <SectionRegular
       colorHue={colorHue}
       icon={icon}
       label={label}
       title={title}
       description={descriptionParse}
-      linkLabel={buttonContents?.linkLabel ? buttonContents.linkLabel : ""}
+      linkLabel={linkLabel || ""}
       urlPhoto={urlPhoto}
       isRtl={isRtl}
     />
@@ -70,15 +67,13 @@ const SectionWrapper = ({
       label={label}
       title={title}
       description={descriptionParse}
-      linkLabel={buttonContents ? buttonContents.linkLabel : ""}
+      linkLabel={linkLabel || ""}
       urlPhoto={urlPhoto}
       additionalLinks={
-        buttonContents?.additionalLinks
-          ? buttonContents.additionalLinks
-          : [{ href: "", label: "", icon: "" }]
+        additionalLinks ? additionalLinks : [{ href: "", label: "", icon: "" }]
       }
     />
   );
 };
 
-export default SectionWrapper;
+export default Section;

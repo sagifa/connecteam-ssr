@@ -19,6 +19,7 @@ const theme = extendTheme({
     button: `'Merriweather', sans-serif`,
   },
 });
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
