@@ -26,6 +26,7 @@ const getNavData = (sections: any) =>
     colorHue: section.colorHue,
   }));
 const Main = ({ sections, home, footer }: any) => {
+  if (!sections) return <></>;
   let isRtl = true;
   const navbarData = getNavData(sections);
 
