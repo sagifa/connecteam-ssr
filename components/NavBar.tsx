@@ -40,7 +40,7 @@ const NavBar = ({ data }: NavBarProps) => {
   }, []);
 
   return (
-    <Box zIndex="10" position="sticky" top="0" id="nuvbar">
+    <Box zIndex="10" position="sticky" top="0" id={navbarId}>
       {showLogo && (
         <Flex
           h="4.8rem"
