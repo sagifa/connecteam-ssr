@@ -3,11 +3,11 @@ import { MainContainerStyle } from "../../styles/style";
 
 export const ContainerStyle: FlexProps = {
   bgColor: "white",
-  mt: "4rem",
-  gap: "2rem",
+  mt: "2.3em",
 };
 
 export const LabelStyle: TextProps = {
+  // w: "12.5rem",
   fontFamily: "Inter",
   fontStyle: "normal",
   fontWeight: "700",

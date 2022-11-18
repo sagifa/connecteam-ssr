@@ -1,12 +1,12 @@
 import { BoxProps, ButtonProps, FlexProps, TextProps } from "@chakra-ui/react";
 
 export const MainContainerStyle: FlexProps = {
-  px: "20vw",
+  px: "24.2rem",
 };
 
 export const ContentBoxStyle: FlexProps = {
   w: "34.6rem",
-  mt: "5.8rem",
+  // w: "25vw",
 };
 
 export const TitleContentStyle: TextProps = {
@@ -15,12 +15,11 @@ export const TitleContentStyle: TextProps = {
   lineHeight: "106%",
   color: "rgba(255, 255, 255, 1)",
   fontFamily: "Merriweather",
-  mt: "4rem",
+  pt: "6.3rem",
 };
 
 export const LogoStyle: BoxProps = {
-  // w: "900px",
-  mt: "6.3rem",
+  pt: "4rem",
 };
 
 export const subtitleStyle: TextProps = {
@@ -30,18 +29,20 @@ export const subtitleStyle: TextProps = {
   fontSize: "19px",
   lineHeight: "23px",
   color: "rgba(255, 255, 255, 1)",
-  mt: "1rem",
+  mt: "2rem",
 };
 
 export const ButtonsBoxStyle: FlexProps = {
-  mt: "1.5rem",
+  mt: "2rem",
   gap: "1rem",
   // justifyContent: "center",
   // alignItems: "center",
 };
 
 export const PrimaryButtonLinkStyle: ButtonProps = {
-  size: "md",
+  // size: "md",
+  // w: "13.5rem",
+  h: "3.4rem",
   background: "#FF9900",
   boxShadow:
     "0px 3px 12px rgba(0, 0, 0, 0.07), 0px 2px 4px rgba(0, 0, 0, 0.07)",
@@ -50,7 +51,9 @@ export const PrimaryButtonLinkStyle: ButtonProps = {
 };
 
 export const SecondaryButtonLinkStyle: ButtonProps = {
-  size: "md",
+  // size: "md",
+  h: "3.4rem",
+  fontFamily: "Merriweather",
   background: "rgba(255, 255, 255, 0.14)",
   border: "2px solid",
   boxShadow:

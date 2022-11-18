@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, Box, useBoolean, Img } from "@chakra-ui/react";
+import { Flex, Text, Box, Img } from "@chakra-ui/react";
 import {
   MainContainerStyle,
   ContentBoxStyle,
@@ -13,25 +13,13 @@ import Image from "next/image";
 import { BASE_URL, HERO_H_REM } from "../utils/consts";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
-import { Logo } from "./icons/Logo";
 
-const fetchData = () => {};
 const Hero = () => {
-  // const [isHoverA, setHoverA] = useBoolean();
-  const [isHoverB, setHoverB] = useBoolean();
-
   const backgroundUrl = `${BASE_URL}/jpg/home-large.jpg`;
-
-  const handleUIEvent = (e: React.UIEvent<HTMLDivElement>) => {
-    // Do something
-    const clientHeight = e.currentTarget.clientHeight;
-    const scrollHeight = e.currentTarget.scrollHeight;
-    const scrollTop = e.currentTarget.scrollTop;
-  };
-  //TODO!! change color config
-
   const colorHue = 36;
   const primaryColor = `hsl(${colorHue},100%,43%,1)`;
+  //TODO!! edit bg image to darker
+  //TODO!! change to custom color theme
 
   return (
     <>
@@ -60,6 +48,7 @@ const Hero = () => {
                     key={btn.label}
                     label={btn.label}
                     colorHue={colorHue}
+                    width="13.5rem"
                   />
                 ) : (
                   <SecondaryButton
@@ -71,7 +60,7 @@ const Hero = () => {
                 );
               })}
             </Flex>
-            <Box bgColor="gray.600" borderRadius="50%" w="3rem" my="4rem">
+            <Box bgColor="gray.600" borderRadius="50%" w="3rem" mt="8rem">
               <Image
                 alt="scrollButton"
                 src="/arrows-scroll.svg"

@@ -1,4 +1,4 @@
-import { Box, Flex, IconProps, Link, Text } from "@chakra-ui/react";
+import { Box, Circle, Flex, IconProps, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
 import CircleImage from "./CircleImage";
@@ -37,26 +37,33 @@ const SectionRegular = ({
 
   return (
     <Flex
-      {...MainContainerStyle}
       {...ContainerStyle}
+      mx="18vw"
       direction={isRtl ? "row-reverse" : "row"}
-      h="40vh"
       id={title}
+      h="28rem"
     >
-      <Flex className="left-side" direction="column" w="40vw" h="20px">
+      <Flex
+        className="left-side"
+        direction="column"
+        // w="40vw"
+        w="43rem"
+        h="3.75rem"
+        px="2rem"
+      >
         <Flex className="title">
           <Flex
             bgColor={secondaryColor}
-            borderRadius="50%"
-            w="3rem"
-            h="3rem"
+            borderRadius="full"
+            w="3.75rem"
+            h="3.75rem"
             justify="center"
             alignItems="center"
             mr="1rem"
           >
             <CustomIcon
               name={icon}
-              props={{ color: primaryColor, boxSize: "2rem" }}
+              props={{ color: primaryColor, boxSize: "2.25rem" }}
             />
           </Flex>
           <Box>
@@ -66,9 +73,9 @@ const SectionRegular = ({
             </Text>
           </Box>
         </Flex>
-        <Box className="content-box" mt="2rem">
+        <Box className="content-box" mt="1.5rem">
           <Text {...DescriptionStyle}>{description}</Text>
-          <Box mt="1rem">
+          <Box mt="1.1rem">
             <Link href="#" color={primaryColor} flexDirection="row">
               <Flex alignItems="center">
                 <Text {...ButtonContentStyle} color={primaryColor}>

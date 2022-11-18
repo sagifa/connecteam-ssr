@@ -25,7 +25,7 @@ const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
           alt="background"
           src={url}
           fill
-          sizes="27.6rem"
+          sizes="28.3rem"
           style={{
             objectFit: "cover",
           }}

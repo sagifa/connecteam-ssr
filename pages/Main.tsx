@@ -26,10 +26,8 @@ const getNavData = (sections: any) =>
     colorHue: section.colorHue,
   }));
 const Main = ({ sections, home, footer }: any) => {
-  const items = home.content.items;
   let isRtl = true;
   const navbarData = getNavData(sections);
-  console.log({ navbarData });
 
   return (
     <Flex direction="column">
