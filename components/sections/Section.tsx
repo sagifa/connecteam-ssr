@@ -40,15 +40,7 @@ const Section = ({
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
   const descriptionParse = parseHtml(description);
   const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg";
-  // const buttonContents = items.find((item) => {
-  //   if (item.name === titleFileFormat) {
-  //     return {
-  //       linkLabel: item.linkLabel,
-  //       links: item.additionalLinks,
-  //       layout: item.layout,
-  //     };
-  //   }
-  // });
+
   return layout == "regular" ? (
     <SectionRegular
       colorHue={colorHue}

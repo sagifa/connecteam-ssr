@@ -16,6 +16,7 @@ const SecondaryButton = ({ label, color, icon }: SecondaryButtonProps) => {
 
   return (
     <Button
+      {...SecondaryButtonLinkStyle}
       onMouseEnter={setHover.on}
       onMouseLeave={setHover.off}
       leftIcon={
@@ -32,7 +33,6 @@ const SecondaryButton = ({ label, color, icon }: SecondaryButtonProps) => {
         )
       }
       rightIcon={isHover ? <ArrowRight color={color} /> : <></>}
-      {...SecondaryButtonLinkStyle}
       color={color}
       borderColor={color}
     >

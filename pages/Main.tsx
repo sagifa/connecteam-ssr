@@ -28,10 +28,9 @@ const getNavData = (sections: any) =>
 
 const Main = ({ sections, home, footer }: any) => {
   if (!sections) return <></>;
-
+  
   let isRtl = true;
   const navbarData = getNavData(sections);
-  console.log({ navbarData });
 
   return (
     <Flex direction="column">

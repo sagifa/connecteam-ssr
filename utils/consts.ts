@@ -7,3 +7,4 @@ export const FILE_PATHS = {
 
 export const HERO_H_REM: number = 59;
 export const REM_SIZE: number = 16;
+export const DEFAULT_FONT_COLOR = "#6A6A6A";
