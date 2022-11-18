@@ -3,7 +3,6 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme, theme as base } from "@chakra-ui/react";
 import { Inter, Merriweather } from "@next/font/google";
-import "./animate.css";
 
 const inter = Inter();
 
