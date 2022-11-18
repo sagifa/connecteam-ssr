@@ -50,7 +50,7 @@ const SectionFullColor = ({
   const secondaryColor = `hsl(${colorHue},100%,21%,1)`;
 
   return (
-    <Box position="relative">
+    <Box position="relative" overflow="hidden">
       <Flex
         {...MainContainerStyle}
         bgColor={secondaryColor}
@@ -66,7 +66,6 @@ const SectionFullColor = ({
           position="absolute"
           rounded="full"
           right="-10%"
-          overflow="hidden"
           opacity="0.05"
           h="100vh"
           sx={{

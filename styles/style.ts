@@ -6,8 +6,8 @@ export const MainContainerStyle: FlexProps = {
 };
 
 export const ContentBoxStyle: FlexProps = {
-  w: "50%",
-  mt: "3rem",
+  w: "34.6rem",
+  mt: "5.8rem",
 };
 
 export const TitleContentStyle: TextProps = {
@@ -20,7 +20,8 @@ export const TitleContentStyle: TextProps = {
 };
 
 export const LogoStyle: BoxProps = {
-  w: "900px",
+  // w: "900px",
+  mt: "6.3rem",
 };
 
 export const subtitleStyle: TextProps = {

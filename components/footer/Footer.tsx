@@ -22,9 +22,7 @@ import { MAIN_COLOR } from "../../utils/consts";
 const Footer = () => {
   const bgColor = "hsla(0, 0%, 97%, 1)";
 
-  const TextInput = () => {
-    return <></>;
-  };
+  const data = "lorem <b>ipsum</b>";
 
   return (
     <Flex {...MainContainerStyle}>
@@ -32,7 +30,9 @@ const Footer = () => {
         <Text {...TitleStyle} color={MAIN_COLOR}>
           {footerData.intro.title}
         </Text>
-        <Text>{footerData.intro.text}</Text>
+        <Text>
+          <div dangerouslySetInnerHTML={{ __html: footerData.intro.text }} />
+        </Text>
         <Link color={MAIN_COLOR} href="#">
           {footerData.intro.link.label}
           <ArrowRight ml="0.5rem" />

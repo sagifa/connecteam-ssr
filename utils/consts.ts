@@ -5,5 +5,5 @@ export const FILE_PATHS = {
   FOOTER: "footer.json",
 };
 
-export const HERO_H_REM: number = 57.5;
+export const HERO_H_REM: number = 59;
 export const REM_SIZE: number = 16;

@@ -53,12 +53,7 @@ const Hero = () => {
 
   return (
     <>
-      <Flex
-        {...MainContainerStyle}
-        h={`${HERO_H_REM}rem`}
-        position="relative"
-        // onScroll={handleUIEvent}
-      >
+      <Flex {...MainContainerStyle} h={`${HERO_H_REM}rem`} position="relative">
         <Image
           alt="background"
           src={backgroundUrl}
@@ -71,7 +66,7 @@ const Hero = () => {
         <Flex>
           <Box {...ContentBoxStyle}>
             <Box {...LogoStyle}>
-              <Img src="/logo.svg" alt="logo" width={["8rem", "16rem"]} />
+              <Img src="/logo.svg" alt="logo" width="20rem" />
             </Box>
             <Text {...TitleContentStyle}>{headData.content.hero.title}</Text>
             <Text {...subtitleStyle}>{headData.content.hero.subtitle}</Text>
