@@ -25,7 +25,10 @@ const getNavData = (sections: any) =>
     icon: section.icon,
     colorHue: section.colorHue,
   }));
+
 const Main = ({ sections, home, footer }: any) => {
+  if (!sections) return <></>;
+
   let isRtl = true;
   const navbarData = getNavData(sections);
   console.log({ navbarData });
