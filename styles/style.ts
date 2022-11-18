@@ -1,16 +1,12 @@
 import { BoxProps, ButtonProps, FlexProps, TextProps } from "@chakra-ui/react";
-import homeLarge from "../public/home-large.jpg";
 
-export const HeadContainerStyle: FlexProps = {
+export const MainContainerStyle: FlexProps = {
   px: "20vw",
-  w: "100vw",
-  //   h: "100vh",
-  minH: "min-content",
 };
 
 export const ContentBoxStyle: FlexProps = {
-  w: "50%",
-  mt: "3rem",
+  w: "34.6rem",
+  mt: "5.8rem",
 };
 
 export const TitleContentStyle: TextProps = {
@@ -23,7 +19,8 @@ export const TitleContentStyle: TextProps = {
 };
 
 export const LogoStyle: BoxProps = {
-  w: "900px",
+  // w: "900px",
+  mt: "6.3rem",
 };
 
 export const subtitleStyle: TextProps = {
@@ -53,11 +50,9 @@ export const PrimaryButtonLinkStyle: ButtonProps = {
 };
 
 export const SecondaryButtonLinkStyle: ButtonProps = {
-  color: "#ED8E00",
   size: "md",
-  // bgColor: "#E3E3E3",
   background: "rgba(255, 255, 255, 0.14)",
-  border: "2px solid #FF9900",
+  border: "2px solid",
   boxShadow:
     "0px 3px 12px rgba(0, 0, 0, 0.07), 0px 2px 4px rgba(0, 0, 0, 0.07)",
   backdropFilter: "blur(8px)",

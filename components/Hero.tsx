@@ -1,50 +1,46 @@
 import React from "react";
+import { Flex, Text, Box, useBoolean, Img } from "@chakra-ui/react";
 import {
-  Flex,
-  Text,
-  Box,
-  Button,
-  useBoolean,
-  HStack,
-  Img,
-} from "@chakra-ui/react";
-import {
-  HeadContainerStyle,
+  MainContainerStyle,
   ContentBoxStyle,
   TitleContentStyle,
   LogoStyle,
   ButtonsBoxStyle,
-  PrimaryButtonLinkStyle,
   subtitleStyle,
-  ButtonContentStyle,
-  SecondaryButtonLinkStyle,
 } from "../styles/style";
-import headData from "../public/homeData.json";
+import headData from "../public/home.json";
 import Image from "next/image";
-import { baseUrl } from "../utils/config";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Icon_1 } from "./noNeed/LogoSvg";
-import { Icon_3 } from "./icons/Icon_3";
-import { Icon_5 } from "./icons/Icon_5";
-import { Icon_4 } from "./icons/Icon_4";
-import { Icon_2 } from "./icons/Icon_2";
-import SectionA from "./sections/SectionA";
+import { BASE_URL, HERO_H_REM } from "../utils/consts";
+import PrimaryButton from "./PrimaryButton";
+import SecondaryButton from "./SecondaryButton";
+import { Logo } from "./icons/Logo";
 
 const fetchData = () => {};
 const Hero = () => {
   // const [isHoverA, setHoverA] = useBoolean();
   const [isHoverB, setHoverB] = useBoolean();
 
-  const backgroundUrl = `${baseUrl}/jpg/home-large.jpg
-  `;
+  const backgroundUrl = `${BASE_URL}/jpg/home-large.jpg`;
+
+  const handleUIEvent = (e: React.UIEvent<HTMLDivElement>) => {
+    // Do something
+    const clientHeight = e.currentTarget.clientHeight;
+    const scrollHeight = e.currentTarget.scrollHeight;
+    const scrollTop = e.currentTarget.scrollTop;
+  };
+  //TODO!! change color config
+
+  const colorHue = 36;
+  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
+
   return (
     <>
-      <Flex {...HeadContainerStyle}>
+      <Flex {...MainContainerStyle} h={`${HERO_H_REM}rem`} position="relative">
         <Image
           alt="background"
           src={backgroundUrl}
           fill
-          sizes="100vw"
+          sizes={`${HERO_H_REM}rem`}
           style={{
             objectFit: "cover",
             zIndex: "-1",
@@ -53,38 +49,27 @@ const Hero = () => {
         <Flex>
           <Box {...ContentBoxStyle}>
             <Box {...LogoStyle}>
-              <Img
-                src="/logo.svg"
-                alt="logo"
-                width={["8rem", "16rem"]}
-                color="red"
-              />
+              <Img src="/logo.svg" alt="logo" width="20rem" />
             </Box>
             <Text {...TitleContentStyle}>{headData.content.hero.title}</Text>
             <Text {...subtitleStyle}>{headData.content.hero.subtitle}</Text>
             <Flex {...ButtonsBoxStyle}>
-              <Button
-                {...PrimaryButtonLinkStyle}
-                rightIcon={<ArrowForwardIcon color="white" />}
-              >
-                <Text {...ButtonContentStyle}>
-                  {headData.content.hero.links[0].label}
-                </Text>
-              </Button>
-              <Button
-                onMouseEnter={setHoverB.on}
-                onMouseLeave={setHoverB.off}
-                leftIcon={
-                  !isHoverB ? <Icon_1 color="#FF9900" boxSize="3.5" /> : <></>
-                }
-                rightIcon={
-                  isHoverB ? <ArrowForwardIcon color="FF9900" /> : <></>
-                }
-                {...SecondaryButtonLinkStyle}
-              >
-                {" "}
-                {headData.content.hero.links[1].label}
-              </Button>
+              {headData.content.hero.links.map((btn) => {
+                return btn.primary ? (
+                  <PrimaryButton
+                    key={btn.label}
+                    label={btn.label}
+                    colorHue={colorHue}
+                  />
+                ) : (
+                  <SecondaryButton
+                    key={btn.label}
+                    label={btn.label}
+                    color={primaryColor}
+                    icon={btn.icon || ""}
+                  />
+                );
+              })}
             </Flex>
             <Box bgColor="gray.600" borderRadius="50%" w="3rem" my="4rem">
               <Image
@@ -97,32 +82,7 @@ const Hero = () => {
           </Box>
         </Flex>
       </Flex>
-      <HStack
-        mt="2rem"
-        h="4rem"
-        bgColor="white"
-        w="100%"
-        spacing="4rem"
-        mx="auto"
-        justifyContent="center"
-      >
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon_3 color="#7A2DDB" boxSize="2rem" />
-          <Text color="#7A2DDB">{headData.content.items[0].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon_5 color="#04CDDA" boxSize="2rem" />
-          <Text color="#04CDDA">{headData.content.items[1].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon_4 color="#0090D0" boxSize="2rem" />
-          <Text color="#0090D0">{headData.content.items[2].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon_2 color="#DA2469" boxSize="2rem" />
-          <Text color="#DA2469">{headData.content.items[3].name}</Text>
-        </Flex>
-      </HStack>
+      <Box zIndex="10" position="sticky" top="0"></Box>
     </>
   );
 };
