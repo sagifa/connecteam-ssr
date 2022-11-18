@@ -1,6 +1,6 @@
 import { Box, Flex, IconProps, Link, Text } from "@chakra-ui/react";
 import React from "react";
-import { MainContainerStyle } from "../../styles/style";
+import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
 import CircleImage from "./CircleImage";
 import {
   ContainerStyle,
@@ -68,12 +68,16 @@ const SectionRegular = ({
         </Flex>
         <Box className="content-box" mt="2rem">
           <Text {...DescriptionStyle}>{description}</Text>
-          <Flex mt="1rem">
-            <Link color={primaryColor} href="#">
-              {linkLabel}
-              <ArrowRight ml="0.5rem" />
+          <Box mt="1rem">
+            <Link href="#" color={primaryColor} flexDirection="row">
+              <Flex alignItems="center">
+                <Text {...ButtonContentStyle} color={primaryColor}>
+                  {linkLabel}
+                </Text>
+                <ArrowRight ml="0.6rem" />
+              </Flex>
             </Link>
-          </Flex>
+          </Box>
         </Box>
       </Flex>
       <CircleImage

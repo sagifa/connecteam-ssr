@@ -31,6 +31,7 @@ import { Icon2 } from "./icons/Icon2";
 import SectionA from "./sections/Section";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import { Logo } from "./icons/Logo";
 
 const fetchData = () => {};
 const Hero = () => {
