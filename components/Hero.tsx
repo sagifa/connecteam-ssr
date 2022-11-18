@@ -1,34 +1,16 @@
 import React from "react";
-import {
-  Flex,
-  Text,
-  Box,
-  Button,
-  useBoolean,
-  HStack,
-  Img,
-} from "@chakra-ui/react";
+import { Flex, Text, Box, useBoolean, Img } from "@chakra-ui/react";
 import {
   MainContainerStyle,
   ContentBoxStyle,
   TitleContentStyle,
   LogoStyle,
   ButtonsBoxStyle,
-  PrimaryButtonLinkStyle,
   subtitleStyle,
-  ButtonContentStyle,
-  SecondaryButtonLinkStyle,
 } from "../styles/style";
 import headData from "../public/home.json";
 import Image from "next/image";
 import { BASE_URL, HERO_H_REM } from "../utils/consts";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { Icon1 } from "./icons/Icon1";
-import { Icon3 } from "./icons/Icon3";
-import { Icon5 } from "./icons/Icon5";
-import { Icon4 } from "./icons/Icon4";
-import { Icon2 } from "./icons/Icon2";
-import SectionA from "./sections/Section";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 import { Logo } from "./icons/Logo";
@@ -58,6 +40,7 @@ const Hero = () => {
           alt="background"
           src={backgroundUrl}
           fill
+          sizes={`${HERO_H_REM}rem`}
           style={{
             objectFit: "cover",
             zIndex: "-1",

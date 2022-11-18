@@ -1,5 +1,4 @@
 import { BoxProps, ButtonProps, FlexProps, TextProps } from "@chakra-ui/react";
-import homeLarge from "../public/home-large.jpg";
 
 export const MainContainerStyle: FlexProps = {
   px: "20vw",
