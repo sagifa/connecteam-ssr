@@ -111,9 +111,14 @@ const Hero = () => {
             <Flex {...ButtonsBoxStyle}>
               {headData.content.hero.links.map((btn) => {
                 return btn.primary ? (
-                  <PrimaryButton label={btn.label} colorHue={colorHue} />
+                  <PrimaryButton
+                    key={btn.label}
+                    label={btn.label}
+                    colorHue={colorHue}
+                  />
                 ) : (
                   <SecondaryButton
+                    key={btn.label}
                     label={btn.label}
                     color={primaryColor}
                     icon={btn.icon || ""}
