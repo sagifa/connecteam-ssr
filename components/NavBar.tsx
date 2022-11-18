@@ -14,15 +14,13 @@ import { ButtonContentStyle } from "../styles/style";
 type NavBarProps = {
   data: { title: string; icon: string; colorHue: number }[];
 };
-const navHinRem = 4;
+const navbarId = "nuvbar";
 
 const handleClickScroll = (id: string) => {
+  const navHight = document.getElementById(navbarId)?.offsetHeight || 0;
   const element = document.getElementById(id);
   if (element) {
-    const y =
-      element.getBoundingClientRect().top +
-      window.scrollY -
-      navHinRem * REM_SIZE;
+    const y = element.getBoundingClientRect().top + window.scrollY - navHight;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 };
@@ -42,27 +40,22 @@ const NavBar = ({ data }: NavBarProps) => {
   }, []);
 
   return (
-    <Box zIndex="10" position="sticky" top="0">
+    <Box zIndex="10" position="sticky" top="0" id="nuvbar">
       {showLogo && (
-        <Transition in={showLogo} timeout={3000}>
-          <Flex
-            h="4.8rem"
-            style={StickyStyle}
-            bgColor="white"
-            py="1rem"
-            pl="20%"
-            alignItems="center"
-          >
-            {/* <Img src="/logo.svg" alt="logo" h="2.6rem" width="14rem" /> */}
-            <Logo h="2.6rem" width="14rem" />
-          </Flex>
-        </Transition>
+        <Flex
+          h="4.8rem"
+          style={StickyStyle}
+          bgColor="white"
+          py="1rem"
+          pl="20%"
+          alignItems="center"
+        >
+          <Logo h="2.6rem" width="14rem" />
+        </Flex>
       )}
       <HStack
-        h={`${navHinRem}rem`}
-        // w="100%"
+        h="4rem"
         spacing="4rem"
-        // mx="auto"
         justifyContent="center"
         style={showLogo ? StickyStyle : {}}
       >
