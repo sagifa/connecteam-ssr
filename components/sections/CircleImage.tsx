@@ -1,8 +1,8 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Circle, Flex } from "@chakra-ui/react";
 import React from "react";
 
 import Image from "next/image";
-import CostumeIcon from "../CostumeIcon";
+import CustomIcon from "../CustomIcon";
 
 type CircleImageProps = {
   icon: string;
@@ -29,7 +29,7 @@ const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
             objectFit: "cover",
           }}
         />
-        <CostumeIcon
+        <CustomIcon
           name={icon}
           props={{
             color: color,

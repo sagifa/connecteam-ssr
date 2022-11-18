@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { MainContainerStyle } from "../../styles/style";
-import CostumeIcon from "../CostumeIcon";
+import CustomIcon from "../CustomIcon";
 import PrimaryButton from "../PrimaryButton";
 import SecondaryButton from "../SecondaryButton";
 import {
@@ -54,10 +54,11 @@ const SectionFullColor = ({
       <Flex
         {...MainContainerStyle}
         bgColor={secondaryColor}
-        h="90vh"
+        h="42rem"
         align="center"
         direction="column"
         mt="5rem"
+        id={title}
       >
         <Img
           src={urlPhoto}
@@ -73,7 +74,7 @@ const SectionFullColor = ({
           }}
         />
         <Center bgColor={primaryColor} rounded="full" boxSize="7rem" mt="4rem">
-          <CostumeIcon
+          <CustomIcon
             name={icon}
             props={{ color: "white", boxSize: "4.5rem" }}
           />

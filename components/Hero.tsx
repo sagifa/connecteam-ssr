@@ -21,7 +21,7 @@ import {
 } from "../styles/style";
 import headData from "../public/home.json";
 import Image from "next/image";
-import { BASE_URL } from "../utils/consts";
+import { BASE_URL, HERO_H_REM } from "../utils/consts";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Icon1 } from "./icons/Icon1";
 import { Icon3 } from "./icons/Icon3";
@@ -49,46 +49,12 @@ const Hero = () => {
 
   const colorHue = 36;
   const primaryColor = `hsl(${colorHue},100%,43%,1)`;
-  const Footer = () => {
-    return (
-      <HStack
-        mt="2rem"
-        h="4rem"
-        bgColor="white"
-        w="100%"
-        spacing="4rem"
-        mx="auto"
-        justifyContent="center"
-      >
-        <Flex
-          alignItems="center"
-          gap="0.2rem"
-          cursor="pointer"
-          onClick={() => {}}
-        >
-          <Icon3 color="#7A2DDB" boxSize="2rem" />
-          <Text color="#7A2DDB">{headData.content.items[0].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon5 color="#04CDDA" boxSize="2rem" />
-          <Text color="#04CDDA">{headData.content.items[1].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon4 color="#0090D0" boxSize="2rem" />
-          <Text color="#0090D0">{headData.content.items[2].name}</Text>
-        </Flex>
-        <Flex alignItems="center" gap="0.2rem">
-          <Icon2 color="#DA2469" boxSize="2rem" />
-          <Text color="#DA2469">{headData.content.items[3].name}</Text>
-        </Flex>
-      </HStack>
-    );
-  };
 
   return (
     <>
       <Flex
         {...MainContainerStyle}
+        h={`${HERO_H_REM}rem`}
         position="relative"
         // onScroll={handleUIEvent}
       >
@@ -137,9 +103,7 @@ const Hero = () => {
           </Box>
         </Flex>
       </Flex>
-      <Box zIndex="10" position="sticky" top="0">
-        <Footer />
-      </Box>
+      <Box zIndex="10" position="sticky" top="0"></Box>
     </>
   );
 };

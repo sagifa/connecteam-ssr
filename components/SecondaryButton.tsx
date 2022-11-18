@@ -1,7 +1,7 @@
 import { Button, IconProps, useBoolean } from "@chakra-ui/react";
 import React from "react";
 import { SecondaryButtonLinkStyle } from "../styles/style";
-import CostumeIcon from "./CostumeIcon";
+import CustomIcon from "./CustomIcon";
 import { ArrowRight } from "./icons/ArrowRight";
 import { Icon1 } from "./icons/Icon1";
 import { PrimaryButtonProps } from "./PrimaryButton";
@@ -20,7 +20,7 @@ const SecondaryButton = ({ label, color, icon }: SecondaryButtonProps) => {
       onMouseLeave={setHover.off}
       leftIcon={
         !isHover ? (
-          <CostumeIcon
+          <CustomIcon
             name={icon}
             props={{
               color: color,

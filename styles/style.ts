@@ -3,8 +3,6 @@ import homeLarge from "../public/home-large.jpg";
 
 export const MainContainerStyle: FlexProps = {
   px: "20vw",
-  w: "100vw",
-  minH: "min-content",
 };
 
 export const ContentBoxStyle: FlexProps = {

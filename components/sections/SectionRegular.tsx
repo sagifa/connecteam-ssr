@@ -8,7 +8,7 @@ import {
   LabelStyle,
   TitleStyle,
 } from "./style";
-import CostumeIcon from "../CostumeIcon";
+import CustomIcon from "../CustomIcon";
 import { ArrowRight } from "../icons/ArrowRight";
 
 type SectionRegularProps = {
@@ -41,6 +41,7 @@ const SectionRegular = ({
       {...ContainerStyle}
       direction={isRtl ? "row-reverse" : "row"}
       h="40vh"
+      id={title}
     >
       <Flex className="left-side" direction="column" w="40vw" h="20px">
         <Flex className="title">
@@ -53,7 +54,7 @@ const SectionRegular = ({
             alignItems="center"
             mr="1rem"
           >
-            <CostumeIcon
+            <CustomIcon
               name={icon}
               props={{ color: primaryColor, boxSize: "2rem" }}
             />

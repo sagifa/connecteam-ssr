@@ -2,8 +2,8 @@ import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Hero from "../components/Hero";
 import Section from "../components/sections/Section";
-import HomeData from "../public/home.json";
 import Footer from "../components/footer/Footer";
+import NavBar from "../components/NavBar";
 
 export type SectionData = {
   title: string;
@@ -18,12 +18,23 @@ export type SectionData = {
   }[];
   items: { title: string; text: string }[];
 };
+
+const getNavData = (sections: any) =>
+  sections.map((section: any) => ({
+    title: section.title,
+    icon: section.icon,
+    colorHue: section.colorHue,
+  }));
 const Main = ({ sections, home, footer }: any) => {
-  const items = HomeData.content.items;
+  const items = home.content.items;
   let isRtl = true;
+  const navbarData = getNavData(sections);
+  console.log({ navbarData });
+
   return (
-    <Flex w="100vw" direction="column">
+    <Flex direction="column">
       <Hero />
+      <NavBar data={navbarData} />
       {sections.map((section: any, index: any) => {
         if (home.content.items[index].layout === "regular") {
           isRtl = !isRtl;
