@@ -1,6 +1,6 @@
-import { Button, IconProps, useBoolean } from "@chakra-ui/react";
+import { Button, Text, useBoolean } from "@chakra-ui/react";
 import React from "react";
-import { SecondaryButtonLinkStyle } from "../styles/style";
+import { ButtonContentStyle, SecondaryButtonLinkStyle } from "../styles/style";
 import CustomIcon from "./CustomIcon";
 import { ArrowRight } from "./icons/ArrowRight";
 import { Icon1 } from "./icons/Icon1";
@@ -33,10 +33,11 @@ const SecondaryButton = ({ label, color, icon }: SecondaryButtonProps) => {
         )
       }
       rightIcon={isHover ? <ArrowRight color={color} /> : <></>}
-      color={color}
       borderColor={color}
     >
-      {label}
+      <Text {...ButtonContentStyle} color={color}>
+        {label}
+      </Text>{" "}
     </Button>
   );
 };

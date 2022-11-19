@@ -56,6 +56,7 @@ export const TitleSecondaryStyle: TextProps = {
   fontWeight: "700",
   fontSize: "42px",
   lineHeight: "42px",
+  mt: "0.25rem",
 };
 
 export const DescriptionSecondaryStyle: TextProps = {
@@ -67,6 +68,7 @@ export const DescriptionSecondaryStyle: TextProps = {
   textAlign: "center",
   color: "white",
   mt: "2rem",
+  w: "71.5rem",
 };
 
 export const ButtonTextSecondaryStyle: TextProps = {
@@ -83,6 +85,7 @@ export const SeparateSecondaryStyle: BoxProps = {
   mt: "2rem",
   background: "rgba(255, 255, 255, 0.08)",
   borderRadius: "38px",
+  w: "71.5rem",
 };
 
 export const FormTitleStyle: TextProps = {

@@ -7,16 +7,15 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "connecteam.com",
-        port: "",
         pathname: "/static/frontend-home-task/**",
       },
     ],
   },
-  experimental: {
-    fontLoaders: [
-      { loader: "@next/font/google", options: { subsets: ["latin"] } },
-    ],
-  },
+  // experimental: {
+  //   fontLoaders: [
+  //     { loader: "@next/font/google", options: { subsets: ["latin"] } },
+  //   ],
+  // },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
