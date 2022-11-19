@@ -49,16 +49,16 @@ const SectionFullColor = ({
 }: SectionProps) => {
   const primaryColor = `hsl(${colorHue},100%,43%,1)`;
   const secondaryColor = `hsl(${colorHue},100%,21%,1)`;
-
+  //TODO!! add width to all content + flex. add const space 2rem and use it here
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative" overflow="hidden" h="42rem" py="4rem">
       <Flex
         {...MainContainerStyle}
         bgColor={secondaryColor}
         h="42rem"
         align="center"
         direction="column"
-        mt="5rem"
+        // mt="5rem"
         id={title}
       >
         <Img
@@ -66,9 +66,9 @@ const SectionFullColor = ({
           alt="bg"
           position="absolute"
           rounded="full"
-          right="-10%"
+          right="-12rem"
           opacity="0.05"
-          h="100vh"
+          // h="100vh"
           sx={{
             filter: "grayscale(90%)",
           }}

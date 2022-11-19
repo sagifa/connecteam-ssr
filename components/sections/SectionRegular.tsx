@@ -39,7 +39,7 @@ const SectionRegular = ({
   return (
     <Flex
       id={title}
-      mx="18vw"
+      px="18vw"
       bgColor="white"
       mt="2.3em"
       direction={isRtl ? "row-reverse" : "row"}
@@ -49,10 +49,10 @@ const SectionRegular = ({
       <Flex
         className="left-side"
         direction="column"
-        // justifyContent="start"
+        justifyContent="center"
         // w="40vw"
-        w="43rem"
-        h="18rem"
+        w="43.5rem"
+        // h="18rem"
         px="2rem"
       >
         <Flex className="title">
