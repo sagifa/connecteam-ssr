@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Box, Flex, VStack } from "@chakra-ui/react";
 import React from "react";
 import Hero from "../components/Hero";
 import Section from "../components/sections/Section";
@@ -33,22 +33,24 @@ const Main = ({ sections, home, footer }: any) => {
   const navbarData = getNavData(sections);
 
   return (
-    <Flex direction="column" gap="2rem">
+    <Flex direction="column">
       <Hero />
       <NavBar data={navbarData} />
-      {sections.map((section: any, index: any) => {
-        if (home.content.items[index].layout === "regular") {
-          isRtl = !isRtl;
-        }
-        return (
-          <Section
-            key={section.title}
-            {...section}
-            {...home.content.items[index]}
-            isRtl={isRtl}
-          />
-        );
-      })}
+      <VStack overflow="hidden">
+        {sections.map((section: any, index: any) => {
+          if (home.content.items[index].layout === "regular") {
+            isRtl = !isRtl;
+          }
+          return (
+            <Section
+              key={section.title}
+              {...section}
+              {...home.content.items[index]}
+              isRtl={isRtl}
+            />
+          );
+        })}
+      </VStack>
       {/* <Footer/> */}
     </Flex>
   );

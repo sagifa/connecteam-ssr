@@ -43,6 +43,7 @@ const SectionRegular = ({
       px="18vw"
       bgColor="white"
       mt="2.3em"
+      pt="2rem"
       direction={isRtl ? "row-reverse" : "row"}
       h="26.25rem"
     >

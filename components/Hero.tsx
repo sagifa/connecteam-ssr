@@ -28,7 +28,7 @@ const Hero = () => {
           alt="background"
           src={backgroundUrl}
           fill
-          sizes={`${HERO_H_REM}rem`}
+          // sizes={`${HERO_H_REM}rem`}
           style={{
             objectFit: "cover",
             zIndex: "-1",

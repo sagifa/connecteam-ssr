@@ -49,7 +49,7 @@ const NavBar = ({ data }: NavBarProps) => {
           style={StickyStyle}
           bgColor="white"
           py="1rem"
-          pl="20%"
+          pl="15%"
           alignItems="center"
         >
           <Logo h="2.6rem" width="14rem" />

@@ -41,7 +41,7 @@ const SectionFullColor = ({
   const secondaryColor = `hsl(${colorHue},100%,21%,1)`;
   //TODO!! add width to all content + flex. add const space 2rem and use it here
   return (
-    <Box position="relative" overflow="hidden" h="46rem" py="4rem">
+    <Box position="relative" overflow="hidden" h="46rem" pt="5rem">
       <Flex
         {...MainContainerStyle}
         bgColor={secondaryColor}
@@ -56,9 +56,9 @@ const SectionFullColor = ({
           alt="bg"
           position="absolute"
           rounded="full"
-          right="-12rem"
+          right="-8rem"
           opacity="0.05"
-          // h="100vh"
+          h="46rem"
           sx={{
             filter: "grayscale(90%)",
           }}
@@ -73,7 +73,6 @@ const SectionFullColor = ({
         <Text {...TitleSecondaryStyle} color={primaryColor}>
           {title}
         </Text>
-        {/* <Text {...DescriptionSecondaryStyle}>{descriptionHtml}</Text> */}
         <VStack width="71.5rem" spacing="2rem">
           <div
             dangerouslySetInnerHTML={{ __html: descriptionHtml }}
