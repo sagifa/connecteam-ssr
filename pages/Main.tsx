@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import Hero from "../components/Hero";
 import Section from "../components/sections/Section";
@@ -28,12 +28,12 @@ const getNavData = (sections: any) =>
 
 const Main = ({ sections, home, footer }: any) => {
   if (!sections) return <></>;
-  
+
   let isRtl = true;
   const navbarData = getNavData(sections);
 
   return (
-    <Flex direction="column">
+    <Flex direction="column" gap="2rem">
       <Hero />
       <NavBar data={navbarData} />
       {sections.map((section: any, index: any) => {
