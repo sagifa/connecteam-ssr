@@ -4,9 +4,11 @@ import SectionRegular from "./SectionRegular";
 import SectionFullColor from "./SectionFullColor";
 
 const parseHtml = (value: string) => {
-  let array = value.split("<p>").join("").split("</p>");
-  let res = "";
-  array.forEach((e) => (res += `\n\n ${e}`));
+  let res;
+  res = value.replaceAll("</p>", "</p><br/>");
+  if (res.slice(-5) === "<br/>") {
+    res = res.slice(0, -5);
+  }
   return res;
 };
 
@@ -38,7 +40,7 @@ const Section = ({
   isRtl,
 }: SectionWrapperProps) => {
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
-  const descriptionParse = parseHtml(description);
+  const descriptionWithBreakLine = parseHtml(description);
   const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg";
 
   return layout == "regular" ? (
@@ -47,7 +49,7 @@ const Section = ({
       icon={icon}
       label={label}
       title={title}
-      description={descriptionParse}
+      descriptionHtml={descriptionWithBreakLine}
       linkLabel={linkLabel || ""}
       urlPhoto={urlPhoto}
       isRtl={isRtl}
@@ -58,7 +60,7 @@ const Section = ({
       colorHue={colorHue}
       label={label}
       title={title}
-      description={descriptionParse}
+      descriptionHtml={descriptionWithBreakLine}
       linkLabel={linkLabel || ""}
       urlPhoto={urlPhoto}
       additionalLinks={

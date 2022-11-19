@@ -80,7 +80,6 @@ export const ButtonTextSecondaryStyle: TextProps = {
 };
 
 export const SeparateSecondaryStyle: BoxProps = {
-  width: "100%",
   height: "2px",
   mt: "2rem",
   background: "rgba(255, 255, 255, 0.08)",
