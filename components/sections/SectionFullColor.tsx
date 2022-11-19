@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Center,
+  Circle,
   Flex,
   HStack,
   IconProps,
@@ -72,12 +73,12 @@ const SectionFullColor = ({
             filter: "grayscale(90%)",
           }}
         />
-        <Center bgColor={primaryColor} rounded="full" boxSize="7rem" mt="4rem">
+        <Circle bgColor={primaryColor} rounded="full" size="7.5rem" mt="4rem">
           <CustomIcon
             name={icon}
             props={{ color: "white", boxSize: "4.5rem" }}
           />
-        </Center>
+        </Circle>
         <Text {...LabelSecondaryStyle}>{label}</Text>
         <Text {...TitleSecondaryStyle} color={primaryColor}>
           {title}

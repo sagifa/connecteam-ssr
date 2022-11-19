@@ -10,6 +10,7 @@ import {
 } from "./style";
 import CustomIcon from "../CustomIcon";
 import { ArrowRight } from "../icons/ArrowRight";
+import { getDarkerColor, getPrimaryColor } from "../../utils/helpers";
 
 type SectionRegularProps = {
   isRtl: boolean;
@@ -32,23 +33,26 @@ const SectionRegular = ({
   linkLabel,
   urlPhoto,
 }: SectionRegularProps) => {
-  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
-  const secondaryColor = `hsl(${colorHue},100%,97%,1)`;
+  const primaryColor = getPrimaryColor(colorHue); // `hsl(${colorHue},100%,43%,1)`;
+  const secondaryColor = getDarkerColor(colorHue); //`hsl(${colorHue},100%,97%,1)`;
 
   return (
     <Flex
-      {...ContainerStyle}
-      mx="18vw"
-      direction={isRtl ? "row-reverse" : "row"}
       id={title}
-      h="28rem"
+      mx="18vw"
+      bgColor="white"
+      mt="2.3em"
+      direction={isRtl ? "row-reverse" : "row"}
+      h="26.25rem"
+      // justifyContent="center"
     >
       <Flex
         className="left-side"
         direction="column"
+        // justifyContent="start"
         // w="40vw"
         w="43rem"
-        h="3.75rem"
+        h="18rem"
         px="2rem"
       >
         <Flex className="title">
@@ -66,12 +70,12 @@ const SectionRegular = ({
               props={{ color: primaryColor, boxSize: "2.25rem" }}
             />
           </Flex>
-          <Box>
+          <Flex justifyContent="center" direction="column">
             <Text {...LabelStyle}>{label}</Text>
             <Text {...TitleStyle} color={primaryColor}>
               {title}
             </Text>
-          </Box>
+          </Flex>
         </Flex>
         <Box className="content-box" mt="1.5rem">
           <Text {...DescriptionStyle}>{description}</Text>
@@ -87,12 +91,7 @@ const SectionRegular = ({
           </Box>
         </Box>
       </Flex>
-      <CircleImage
-        color={primaryColor}
-        url={urlPhoto}
-        isRtl={isRtl}
-        icon={icon}
-      />
+      <CircleImage color={colorHue} url={urlPhoto} isRtl={isRtl} icon={icon} />
     </Flex>
   );
 };

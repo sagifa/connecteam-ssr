@@ -1,7 +1,7 @@
 import { HStack, Flex, Text, Box } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { HERO_H_REM, REM_SIZE } from "../utils/consts";
-import { getHslCode } from "../utils/helpers";
+import { getPrimaryColor } from "../utils/helpers";
 import CustomIcon from "./CustomIcon";
 
 import { Logo } from "./icons/Logo";
@@ -62,7 +62,7 @@ const NavBar = ({ data }: NavBarProps) => {
         style={showLogo ? StickyStyle : {}}
       >
         {data.map((item) => {
-          const hslColor = getHslCode(item.colorHue);
+          const hslColor = getPrimaryColor(item.colorHue);
           return (
             <Flex
               key={item.title}

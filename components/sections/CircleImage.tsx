@@ -3,23 +3,29 @@ import React from "react";
 
 import Image from "next/image";
 import CustomIcon from "../CustomIcon";
+import {
+  getBackgroundColor,
+  getHoverSecondaryColor,
+} from "../../utils/helpers";
 
 type CircleImageProps = {
   icon: string;
   url: string;
-  color: string;
+  color: number;
   isRtl: boolean;
 };
 const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
+  const bgColor = getBackgroundColor(color);
+  const iconColor = getHoverSecondaryColor(color);
   return (
-    <Box position="relative">
+    <Box position="relative" h="28.3rem">
       <Flex
         overflow="hidden"
         borderRadius="full"
         position="relative"
         pl="1rem"
-        w="20rem"
-        h="20rem"
+        w="28.3rem"
+        h="28.3rem"
       >
         <Image
           alt="background"
@@ -31,20 +37,27 @@ const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
           }}
         />
       </Flex>
-      <CustomIcon
-        name={icon}
-        props={{
-          border: "white solid 2px",
-          color: color,
-          boxSize: "6rem",
-          position: "absolute",
-          bottom: "0",
-          right: !isRtl ? "0" : "",
-          left: isRtl ? "0" : "",
-          backdropFilter: "blur(8px)",
-          borderRadius: "50%",
-        }}
-      />
+      <Box>
+        <Circle
+          backgroundBlendMode="overlay"
+          size="6.75rem"
+          position="absolute"
+          bottom="0.6rem"
+          right={!isRtl ? "1.5rem" : ""}
+          left={isRtl ? "1.5rem" : ""}
+          backdropFilter="blur(8px)"
+          border="4px solid #FFFFFF"
+          // opacity=".5"
+        >
+          <CustomIcon
+            name={icon}
+            props={{
+              color: iconColor,
+              boxSize: "4rem",
+            }}
+          />
+        </Circle>
+      </Box>
     </Box>
   );
 };

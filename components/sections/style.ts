@@ -56,6 +56,7 @@ export const TitleSecondaryStyle: TextProps = {
   fontWeight: "700",
   fontSize: "42px",
   lineHeight: "42px",
+  mt: "0.25rem",
 };
 
 export const DescriptionSecondaryStyle: TextProps = {
