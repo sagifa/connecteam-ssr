@@ -1,5 +1,5 @@
 import { Box, Circle, Flex, IconProps, Link, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
 import CircleImage from "./CircleImage";
 import {
@@ -11,6 +11,7 @@ import {
 import CustomIcon from "../CustomIcon";
 import { ArrowRight } from "../icons/ArrowRight";
 import { getDarkerColor, getPrimaryColor } from "../../utils/helpers";
+import ShowHtml from "../ShowHtml";
 
 type SectionRegularProps = {
   isRtl: boolean;
@@ -18,7 +19,7 @@ type SectionRegularProps = {
   icon: string;
   label: string;
   title: string;
-  description: string;
+  descriptionHtml: string;
   urlPhoto: string;
   linkLabel: string;
 };
@@ -29,7 +30,7 @@ const SectionRegular = ({
   icon,
   label,
   title,
-  description,
+  descriptionHtml,
   linkLabel,
   urlPhoto,
 }: SectionRegularProps) => {
@@ -44,15 +45,12 @@ const SectionRegular = ({
       mt="2.3em"
       direction={isRtl ? "row-reverse" : "row"}
       h="26.25rem"
-      // justifyContent="center"
     >
       <Flex
         className="left-side"
         direction="column"
         justifyContent="center"
-        // w="40vw"
         w="43.5rem"
-        // h="18rem"
         px="2rem"
       >
         <Flex className="title">
@@ -78,7 +76,16 @@ const SectionRegular = ({
           </Flex>
         </Flex>
         <Box className="content-box" mt="1.5rem">
-          <Text {...DescriptionStyle}>{description}</Text>
+          <div
+            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+            style={{
+              fontFamily: "Inter",
+              fontWeight: "500",
+              fontSize: "19px",
+              lineHeight: "23px",
+              color: "#6A6A6A",
+            }}
+          />
           <Box mt="1.1rem">
             <Link href="#" color={primaryColor} flexDirection="row">
               <Flex alignItems="center">
@@ -97,3 +104,12 @@ const SectionRegular = ({
 };
 
 export default SectionRegular;
+
+export const innerHtmlStyle: CSSProperties = {
+  fontFamily: "inter",
+  fontStyle: "normal",
+  fontWeight: "500",
+  fontSize: "19px",
+  lineHeight: "23px",
+  color: "#6A6A6A",
+};
