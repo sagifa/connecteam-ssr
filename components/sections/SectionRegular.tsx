@@ -70,7 +70,7 @@ const SectionRegular = ({
               props={{ color: primaryColor, boxSize: "2.25rem" }}
             />
           </Flex>
-          <Flex justifyContent="center" direction="column">
+          <Flex justifyContent="center" direction="column" gap=".25rem">
             <Text {...LabelStyle}>{label}</Text>
             <Text {...TitleStyle} color={primaryColor}>
               {title}
