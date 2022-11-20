@@ -5,9 +5,9 @@ export const ArrowSelect = (props: IconProps) => (
       //   stroke="#000"
       d="M13 1L7 5L1 1"
       stroke="#6A6A6A"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       fill="none"
     />
   </Icon>
