@@ -15,7 +15,7 @@ type CircleImageProps = {
   isRtl: boolean;
 };
 const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
-  // const bgColor = getBackgroundColor(color); TODO!! need to add the bgcolor to the banner that on the image
+  //TODO!! need to add  bgcolor to the badge on the image
   const iconColor = getHoverSecondaryColor(color);
   return (
     <Box position="relative" h="28.3rem">

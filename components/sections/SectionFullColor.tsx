@@ -20,7 +20,7 @@ type SectionProps = {
   title: string;
   descriptionHtml: string;
   urlPhoto: string;
-  linkLabel: string; //TODO!! Must
+  linkLabel: string;
   additionalLinks: {
     href: string;
     label: string;

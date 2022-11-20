@@ -40,8 +40,7 @@ const Form = (footerData: any) => {
   const group = getRootProps();
   const toast = useToast();
 
-  // build array inputs
-  //TODO!!  must improve this func
+  //TODO!!  must improve this func, create page object
   const halfArray = [];
   let radioTitle;
   const radioArray = [];
