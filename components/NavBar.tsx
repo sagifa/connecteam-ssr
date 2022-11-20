@@ -1,4 +1,4 @@
-import { HStack, Flex, Text, Box } from "@chakra-ui/react";
+import { HStack, Flex, Text, Box, Slide } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { HERO_H_REM, REM_SIZE } from "../utils/consts";
 import { getPrimaryColor } from "../utils/helpers";
@@ -42,21 +42,21 @@ const NavBar = ({ data }: NavBarProps) => {
   }, []);
 
   return (
-    <Box zIndex="10" position="sticky" top="0" id={navbarId}>
-      {showLogo && (
+    <Box zIndex="10" position="sticky" top="4.8rem" id={navbarId}>
+      <Slide direction="top" in={showLogo} style={{ zIndex: 10 }}>
         <Flex
           h="4.8rem"
           style={StickyStyle}
           bgColor="white"
           py="1rem"
-          pl="20%"
+          pl="15%"
           alignItems="center"
         >
           <Logo h="2.6rem" width="14rem" />
         </Flex>
-      )}
+      </Slide>
       <HStack
-        h="7.1rem"
+        h="4.1rem"
         spacing="5.37rem"
         justifyContent="center"
         style={showLogo ? StickyStyle : {}}
