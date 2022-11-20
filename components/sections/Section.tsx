@@ -3,7 +3,7 @@ import { BASE_URL } from "../../utils/consts";
 import SectionRegular from "./SectionRegular";
 import SectionFullColor from "./SectionFullColor";
 
-const parseHtml = (value: string) => {
+export const parseHtml = (value: string) => {
   let res;
   res = value.replaceAll("</p>", "</p><br/>");
   if (res.slice(-5) === "<br/>") {
