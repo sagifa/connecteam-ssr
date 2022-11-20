@@ -46,7 +46,7 @@ export const PrimaryPageStyle: FlexProps = {
   h: "31rem",
 };
 
-export const PrimaryLeftSide: FlexProps = {
+export const PrimarySectionContentStyle: FlexProps = {
   className: "left-side",
   direction: "column",
   justifyContent: "center",

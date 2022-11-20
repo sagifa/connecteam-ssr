@@ -2,6 +2,7 @@ import React from "react";
 import { BASE_URL } from "../../utils/consts";
 import SectionRegular from "./SectionRegular";
 import SectionFullColor from "./SectionFullColor";
+import { getPath } from "../../utils/helpers";
 
 export const parseHtml = (value: string) => {
   // add break line after closing paragraph
@@ -42,7 +43,7 @@ const Section = ({
 }: SectionWrapperProps) => {
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
   const descriptionWithBreakLine = parseHtml(description);
-  const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg"; // TODO!! need to select via user screen
+  const urlPhoto = getPath(titleFileFormat + "-small.jpg", "jpg");
 
   return layout == "regular" ? (
     <SectionRegular

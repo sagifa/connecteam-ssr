@@ -1,20 +1,17 @@
-import { Box, Flex, Link, Text } from "@chakra-ui/react";
-import React, { CSSProperties } from "react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import React from "react";
 import CircleImage from "./CircleImage";
 import CustomIcon from "../CustomIcon";
-import { ArrowRight } from "../icons/ArrowRight";
 import { getDarkerColor, getPrimaryColor } from "../../utils/helpers";
-import { ButtonContentStyle } from "../buttons/style";
-import { TitleStyle } from "../hero/style";
 import {
   PrimaryPageStyle,
-  PrimaryLeftSide,
+  PrimarySectionContentStyle,
   PrimaryLabelStyle,
   PrimaryTitleStyle,
   PrimaryIconStyle,
 } from "./style";
-import { InterNormalStyle } from "../../styles/style";
 import { DEFAULT_FONT_COLOR } from "../../utils/consts";
+import CustomLink from "../CustomLink";
 
 type SectionRegularProps = {
   isRtl: boolean;
@@ -26,23 +23,6 @@ type SectionRegularProps = {
   urlPhoto: string;
   linkLabel: string;
 };
-
-export const CustomLinkTo = ({
-  content,
-  color,
-}: {
-  content: string;
-  color: string;
-}) => (
-  <Link href="#" color={color} flexDirection="row">
-    <Flex alignItems="center">
-      <Text {...ButtonContentStyle} color={color}>
-        {content}
-      </Text>
-      <ArrowRight ml="0.6rem" />
-    </Flex>
-  </Link>
-);
 
 const SectionRegular = ({
   isRtl,
@@ -63,7 +43,7 @@ const SectionRegular = ({
       direction={isRtl ? "row-reverse" : "row"}
       {...PrimaryPageStyle}
     >
-      <Flex {...PrimaryLeftSide}>
+      <Flex {...PrimarySectionContentStyle}>
         <Flex>
           <Flex bgColor={secondaryColor} {...PrimaryIconStyle}>
             <CustomIcon
@@ -90,7 +70,7 @@ const SectionRegular = ({
             }}
           />
           <Box mt="1.1rem">
-            <CustomLinkTo content={linkLabel} color={primaryColor} />
+            <CustomLink content={linkLabel} color={primaryColor} />
           </Box>
         </Box>
       </Flex>

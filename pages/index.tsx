@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import Hero from "../components/hero/Hero";
 import { FILE_PATHS } from "../utils/consts";
 import { getPath } from "../utils/helpers";
-import Main from "./Main";
+import Main from "../components/Main";
 
 type homeDataType = {
   title: string;
@@ -31,13 +31,11 @@ type homeDataType = {
   };
 };
 export async function getServerSideProps() {
-  // Fetch data from external API
   const homeRes = await fetch(getPath(FILE_PATHS.HOME, "data"));
-
   const footerRes = await fetch(getPath(FILE_PATHS.FOOTER, "data"));
   const footer = await footerRes.json();
-
   const home: homeDataType = await homeRes.json();
+
   const requests: Promise<any>[] = [];
   home.content.items.map((section) => {
     requests.push(

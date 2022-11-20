@@ -1,7 +1,6 @@
 import {
   Box,
   Flex,
-  Link,
   Text,
   Input,
   SimpleGrid,
@@ -12,14 +11,13 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { MainContainerStyle } from "../../styles/style";
-import { ArrowRight } from "../icons/ArrowRight";
 import { MAIN_COLOR } from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
 import { ArrowSelect } from "../icons/ArrowSelect";
 import RadioInput from "../RadioInput";
 import { TitleStyle } from "../hero/style";
-import { ButtonContentStyle } from "../buttons/style";
 import { FormTitleStyle } from "./style";
+import CustomLink from "../CustomLink";
 const Form = (footerData: any) => {
   return (
     <Flex {...MainContainerStyle} mt="8rem" h="41.5rem">
@@ -45,14 +43,11 @@ const Form = (footerData: any) => {
             color: "#6A6A6A",
           }}
         />
-        <Link color={MAIN_COLOR} href="#">
-          <Flex alignItems="center" justifyContent="start">
-            <Text {...ButtonContentStyle} color={MAIN_COLOR}>
-              {footerData.data.intro.link.label}
-            </Text>
-            <ArrowRight ml="0.6rem" />
-          </Flex>
-        </Link>
+
+        <CustomLink
+          content={footerData.data.intro.link.label}
+          color={MAIN_COLOR}
+        />
       </Flex>
       <Box>
         <Flex
