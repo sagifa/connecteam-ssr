@@ -13,7 +13,7 @@ type NavBarProps = {
 };
 const navbarId = "nuvbar";
 
-const handleClickScroll = (id: string) => {
+export const handleClickScroll = (id: string) => {
   const navHight = document.getElementById(navbarId)?.offsetHeight || 0;
   const element = document.getElementById(id);
   if (element) {

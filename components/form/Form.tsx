@@ -64,7 +64,14 @@ const Form = (footerData: any) => {
   });
 
   return (
-    <Flex px={APP_PADDING} mt="4rem" pt="4rem" h="41.5rem" bgColor="#F8F8F8">
+    <Flex
+      px={APP_PADDING}
+      mt="4rem"
+      pt="4rem"
+      h="41.5rem"
+      bgColor="#F8F8F8"
+      id="form-section"
+    >
       <Flex
         className="left-side"
         w="25.25rem"

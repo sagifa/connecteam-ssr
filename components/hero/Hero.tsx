@@ -19,15 +19,21 @@ import {
 } from "./style";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
-import { getPath } from "../../utils/helpers";
+import { getPath, getPrimaryColor } from "../../utils/helpers";
+import { handleClickScroll } from "../NavBar";
 
 const Hero = (heroData: any) => {
   const { isOpen, onToggle } = useDisclosure();
   const backgroundUrl = getPath("home-large.jpg", "jpg");
   const colorHue = 36;
-  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
+  const primaryColor = getPrimaryColor(colorHue);
   //TODO!! edit bg image to darker
   //TODO!! change to custom color theme
+
+  const handleClick = () => {
+    handleClickScroll("form-section");
+    onToggle();
+  };
   return (
     <Flex
       px={APP_PADDING}
@@ -73,7 +79,7 @@ const Hero = (heroData: any) => {
               );
             })}
           </Flex>
-          <Circle {...ScrollButtonStyle} onClick={onToggle}>
+          <Circle {...ScrollButtonStyle} onClick={handleClick}>
             <Center>
               {isOpen ? (
                 <Image
