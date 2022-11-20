@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { APP_PADDING, APP_WIDTH, HERO_H_REM } from "../../utils/consts";
-
 import {
   ButtonsBoxStyle,
   ScrollButtonStyle,
@@ -27,9 +26,6 @@ const Hero = (heroData: any) => {
   const backgroundUrl = getPath("home-large.jpg", "jpg");
   const colorHue = 36;
   const primaryColor = getPrimaryColor(colorHue);
-  //TODO!! edit bg image to darker
-  //TODO!! change to custom color theme
-
   const handleClick = () => {
     handleClickScroll("form-section");
     onToggle();
@@ -67,6 +63,7 @@ const Hero = (heroData: any) => {
                   label={btn.label}
                   colorHue={colorHue}
                   width="13.5rem"
+                  height="3.4rem"
                 />
               ) : (
                 <SecondaryButton

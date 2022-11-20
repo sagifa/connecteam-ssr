@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import {
   Box,
   Flex,
@@ -18,7 +17,6 @@ import {
   MAIN_COLOR,
 } from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
-
 import {
   FormIntroTitleStyle,
   FormTitleStyle,
@@ -39,9 +37,6 @@ const Form = (footerData: any) => {
   });
   const group = getRootProps();
   const toast = useToast();
-
-  // build array inputs
-  //TODO!!  must improve this func
   const halfArray = [];
   let radioTitle;
   const radioArray = [];
@@ -143,7 +138,6 @@ const Form = (footerData: any) => {
               })}
             </HStack>
           </Box>
-
           <FormControl variant="floating" id="first-name" mt="1.5rem">
             <Textarea
               color={DEFAULT_FONT_COLOR}

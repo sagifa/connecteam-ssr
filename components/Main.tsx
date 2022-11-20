@@ -36,7 +36,7 @@ const Main = ({ sections, home, footer }: any) => {
     <Flex direction="column" w={APP_WIDTH} alignItems="center">
       <Hero data={home} />
       <NavBar data={navbarData} />
-      <VStack overflow="hidden">
+      <Flex overflow="hidden" direction="column" alignItems="center">
         {sections.map((section: any, index: any) => {
           if (home.content.items[index].layout === "regular") {
             isRtl = !isRtl;
@@ -50,7 +50,7 @@ const Main = ({ sections, home, footer }: any) => {
             />
           );
         })}
-      </VStack>
+      </Flex>
       <Form data={footer} />
     </Flex>
   );

@@ -1,11 +1,4 @@
-import {
-  BoxProps,
-  ButtonProps,
-  ChakraProps,
-  extendTheme,
-  FlexProps,
-  TextProps,
-} from "@chakra-ui/react";
+import { ChakraProps, extendTheme, FlexProps } from "@chakra-ui/react";
 import { DEFAULT_FONT_COLOR } from "../utils/consts";
 
 export const MainContainerStyle: FlexProps = {

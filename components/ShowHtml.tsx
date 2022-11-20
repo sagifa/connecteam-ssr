@@ -6,10 +6,10 @@ type ShowHtmlProps = {
   align?: string;
 };
 const ShowHtml = ({ htmlTags, color, align }: ShowHtmlProps) => {
-  const htmlWithBreakline = htmlTags.replaceAll("</p>", "</p><br/>");
+  const htmlWithBreakLine = htmlTags.replaceAll("</p>", "</p><br/>");
   return (
     <div
-      dangerouslySetInnerHTML={{ __html: htmlWithBreakline }}
+      dangerouslySetInnerHTML={{ __html: htmlWithBreakLine }}
       style={{
         fontFamily: "Inter",
         fontWeight: "500",

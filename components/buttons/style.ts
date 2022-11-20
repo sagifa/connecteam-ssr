@@ -1,9 +1,6 @@
 import { ButtonProps, TextProps } from "@chakra-ui/react";
 
 export const PrimaryButtonLinkStyle: ButtonProps = {
-  // size: "md",
-  // w: "13.5rem",
-  h: "3.4rem",
   background: "#FF9900",
   boxShadow:
     "0px 3px 12px rgba(0, 0, 0, 0.07), 0px 2px 4px rgba(0, 0, 0, 0.07)",

@@ -4,10 +4,8 @@ import { HERO_H_REM, REM_SIZE } from "../utils/consts";
 import { getPrimaryColor } from "../utils/helpers";
 import { ButtonContentStyle } from "./buttons/style";
 import CustomIcon from "./CustomIcon";
-
 import { Logo } from "./icons/Logo";
 
-//TODO!! might add listener to screen resolution change
 type NavBarProps = {
   data: { title: string; icon: string; colorHue: number }[];
 };

@@ -1,11 +1,10 @@
-import { Box, Flex, useRadio, Text } from "@chakra-ui/react";
+import { Flex, useRadio, Text } from "@chakra-ui/react";
 import React from "react";
 import { DEFAULT_FONT_COLOR } from "../utils/consts";
 import { RadioButtonOptionStyle } from "./form/style";
 
 const RadioButton = (props: any) => {
   const { getInputProps, getCheckboxProps } = useRadio(props);
-
   const input = getInputProps();
   const checkbox = getCheckboxProps();
 

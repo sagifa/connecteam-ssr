@@ -1,12 +1,8 @@
 import { Box, Circle, Flex } from "@chakra-ui/react";
 import React from "react";
-
 import Image from "next/image";
 import CustomIcon from "../CustomIcon";
-import {
-  getBackgroundColor,
-  getHoverSecondaryColor,
-} from "../../utils/helpers";
+import { getHoverSecondaryColor } from "../../utils/helpers";
 
 type CircleImageProps = {
   icon: string;
@@ -15,7 +11,6 @@ type CircleImageProps = {
   isRtl: boolean;
 };
 const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
-  // const bgColor = getBackgroundColor(color); TODO!! need to add the bgcolor to the banner that on the image
   const iconColor = getHoverSecondaryColor(color);
   return (
     <Box position="relative" h="28.3rem">

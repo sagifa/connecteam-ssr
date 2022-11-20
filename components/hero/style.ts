@@ -1,5 +1,4 @@
 import { FlexProps, SquareProps, TextProps } from "@chakra-ui/react";
-import { DEFAULT_FONT_COLOR } from "../../utils/consts";
 
 export const TitleStyle: TextProps = {
   fontWeight: "700",

@@ -20,7 +20,7 @@ type SectionProps = {
   title: string;
   descriptionHtml: string;
   urlPhoto: string;
-  linkLabel: string; //TODO!! Must
+  linkLabel: string;
   additionalLinks: {
     href: string;
     label: string;
@@ -41,7 +41,7 @@ const SectionFullColor = ({
   const primaryColor = getPrimaryColor(colorHue);
   const secondaryColor = getSecondaryColor(colorHue);
   return (
-    <Flex id={title} {...SecondaryPageStyle} bgColor={secondaryColor}>
+    <Flex id={title} {...SecondaryPageStyle} bgColor={secondaryColor} mt="4rem">
       <Img src={urlPhoto} {...SecondaryImgStyle} />
       <Circle bgColor={primaryColor} {...SecondaryIconBg}>
         <CustomIcon name={icon} props={{ color: "white", boxSize: "4.5rem" }} />

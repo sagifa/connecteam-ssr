@@ -2,7 +2,6 @@ import { Button, Text } from "@chakra-ui/react";
 import React from "react";
 import { getHoverSecondaryColor, getHoverColor } from "../../utils/helpers";
 import { ArrowRight } from "../icons/ArrowRight";
-
 import { ButtonContentStyle, PrimaryButtonLinkStyle } from "./style";
 
 export type PrimaryButtonProps = {
@@ -10,8 +9,15 @@ export type PrimaryButtonProps = {
   colorHue: number;
   width?: string;
   mt?: string;
+  height?: string;
 };
-const PrimaryButton = ({ label, colorHue, width, mt }: PrimaryButtonProps) => {
+const PrimaryButton = ({
+  label,
+  colorHue,
+  width,
+  mt,
+  height,
+}: PrimaryButtonProps) => {
   const backgroundColor = getHoverSecondaryColor(colorHue);
   const hoverColor = getHoverColor(colorHue);
 
@@ -20,6 +26,7 @@ const PrimaryButton = ({ label, colorHue, width, mt }: PrimaryButtonProps) => {
       {...PrimaryButtonLinkStyle}
       width={width}
       mt={mt}
+      height={height}
       bgColor={backgroundColor}
       rightIcon={<ArrowRight color="white" ml="0.5rem" />}
       _hover={{ bgColor: hoverColor }}

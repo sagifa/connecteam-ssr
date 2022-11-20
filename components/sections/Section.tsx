@@ -5,7 +5,7 @@ import SectionFullColor from "./SectionFullColor";
 import { getPath } from "../../utils/helpers";
 
 export const parseHtml = (value: string) => {
-  // add break line after closing paragraph
+  // this func add break line after closing paragraph
   let res;
   res = value.replaceAll("</p>", "</p><br/>");
   if (res.slice(-5) === "<br/>") {
