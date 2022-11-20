@@ -11,3 +11,13 @@ Few of the SVGs didn't work on Figma, and I didn't want to use third-party SVGs,
 If you give me the chance, I would like to try my skills in responsive design.
 
 In addition, I want to use the scroll button on hero section to collapse and un-collapse the other other sections and footers 
+
+
+
+todos:
+create color theme
+form - build more effient JSON data 
+section regular - add bg color to the banner on the image
+hero - scroll button will collapse and uncollapse the other section
+responsive on small screens
+                                                                                               
