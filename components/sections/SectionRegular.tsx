@@ -1,17 +1,17 @@
-import { Box, Circle, Flex, IconProps, Link, Text } from "@chakra-ui/react";
-import React, { CSSProperties } from "react";
-import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
+import { Box, Flex, Text } from "@chakra-ui/react";
+import React from "react";
 import CircleImage from "./CircleImage";
-import {
-  ContainerStyle,
-  DescriptionStyle,
-  LabelStyle,
-  TitleStyle,
-} from "./style";
 import CustomIcon from "../CustomIcon";
-import { ArrowRight } from "../icons/ArrowRight";
 import { getDarkerColor, getPrimaryColor } from "../../utils/helpers";
-import ShowHtml from "../ShowHtml";
+import {
+  PrimaryPageStyle,
+  PrimarySectionContentStyle,
+  PrimaryLabelStyle,
+  PrimaryTitleStyle,
+  PrimaryIconStyle,
+} from "./style";
+import { DEFAULT_FONT_COLOR } from "../../utils/consts";
+import CustomLink from "../CustomLink";
 
 type SectionRegularProps = {
   isRtl: boolean;
@@ -34,50 +34,31 @@ const SectionRegular = ({
   linkLabel,
   urlPhoto,
 }: SectionRegularProps) => {
-  const primaryColor = getPrimaryColor(colorHue); // `hsl(${colorHue},100%,43%,1)`;
-  const secondaryColor = getDarkerColor(colorHue); //`hsl(${colorHue},100%,97%,1)`;
+  const primaryColor = getPrimaryColor(colorHue);
+  const secondaryColor = getDarkerColor(colorHue);
 
   return (
     <Flex
       id={title}
-      px="18vw"
-      bgColor="white"
-      mx="2.3em"
-      pt="2rem"
       direction={isRtl ? "row-reverse" : "row"}
-      // h="26.25rem"
-      h="31rem"
+      {...PrimaryPageStyle}
     >
-      <Flex
-        className="left-side"
-        direction="column"
-        justifyContent="center"
-        w="43.5rem"
-        px="2rem"
-      >
-        <Flex className="title">
-          <Flex
-            bgColor={secondaryColor}
-            borderRadius="full"
-            w="3.75rem"
-            h="3.75rem"
-            justify="center"
-            alignItems="center"
-            mr="1rem"
-          >
+      <Flex {...PrimarySectionContentStyle}>
+        <Flex>
+          <Flex bgColor={secondaryColor} {...PrimaryIconStyle}>
             <CustomIcon
               name={icon}
               props={{ color: primaryColor, boxSize: "2.25rem" }}
             />
           </Flex>
           <Flex justifyContent="center" direction="column" gap=".25rem">
-            <Text {...LabelStyle}>{label}</Text>
-            <Text {...TitleStyle} color={primaryColor}>
+            <Text {...PrimaryLabelStyle}>{label}</Text>
+            <Text {...PrimaryTitleStyle} color={primaryColor}>
               {title}
             </Text>
           </Flex>
         </Flex>
-        <Box className="content-box" mt="1.5rem">
+        <Box mt="1.5rem">
           <div
             dangerouslySetInnerHTML={{ __html: descriptionHtml }}
             style={{
@@ -85,18 +66,11 @@ const SectionRegular = ({
               fontWeight: "500",
               fontSize: "19px",
               lineHeight: "23px",
-              color: "#6A6A6A",
+              color: DEFAULT_FONT_COLOR,
             }}
           />
           <Box mt="1.1rem">
-            <Link href="#" color={primaryColor} flexDirection="row">
-              <Flex alignItems="center">
-                <Text {...ButtonContentStyle} color={primaryColor}>
-                  {linkLabel}
-                </Text>
-                <ArrowRight ml="0.6rem" />
-              </Flex>
-            </Link>
+            <CustomLink content={linkLabel} color={primaryColor} />
           </Box>
         </Box>
       </Flex>
@@ -106,12 +80,3 @@ const SectionRegular = ({
 };
 
 export default SectionRegular;
-
-export const innerHtmlStyle: CSSProperties = {
-  fontFamily: "inter",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "19px",
-  lineHeight: "23px",
-  color: "#6A6A6A",
-};

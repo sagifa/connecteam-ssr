@@ -1,42 +1,13 @@
-import { BoxProps, FlexProps, InputProps, TextProps } from "@chakra-ui/react";
+import {
+  BoxProps,
+  FlexProps,
+  ImgProps,
+  InputProps,
+  SquareProps,
+  TextProps,
+} from "@chakra-ui/react";
 import { MainContainerStyle } from "../../styles/style";
-
-export const ContainerStyle: FlexProps = {
-  bgColor: "white",
-  mt: "2.3em",
-};
-
-export const LabelStyle: TextProps = {
-  // w: "12.5rem",
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  fontWeight: "700",
-  fontSize: "12px",
-  lineHeight: "12px",
-  /* identical to box height, or 100% */
-
-  letterSpacing: "0.19em",
-  textTransform: "uppercase",
-
-  color: "#6A6A6A",
-};
-
-export const TitleStyle: TextProps = {
-  fontFamily: "Merriweather",
-  fontStyle: "normal",
-  fontWeight: "700",
-  fontSize: "32px",
-  lineHeight: "32px",
-};
-
-export const DescriptionStyle: TextProps = {
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "19px",
-  lineHeight: "23px",
-  color: "#6A6A6A",
-};
+import { APP_PADDING, DEFAULT_FONT_COLOR } from "../../utils/consts";
 
 export const LabelSecondaryStyle: TextProps = {
   fontFamily: "Inter",
@@ -59,26 +30,6 @@ export const TitleSecondaryStyle: TextProps = {
   mt: "0.25rem",
 };
 
-export const DescriptionSecondaryStyle: TextProps = {
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "19px",
-  lineHeight: "23px",
-  textAlign: "center",
-  color: "white",
-  mt: "2rem",
-  w: "71.5rem",
-};
-
-export const ButtonTextSecondaryStyle: TextProps = {
-  fontFamily: "Merriweather",
-  fontStyle: "normal",
-  fontWeight: "700",
-  fontSize: "19px",
-  lineHeight: "19px",
-};
-
 export const SeparateSecondaryStyle: BoxProps = {
   height: "2px",
   mt: "2rem",
@@ -87,41 +38,74 @@ export const SeparateSecondaryStyle: BoxProps = {
   w: "71.5rem",
 };
 
-export const FormTitleStyle: TextProps = {
-  fontFamily: "Inter",
-  fontStyle: "normal",
-  fontWeight: "500",
-  fontSize: "19px",
-  lineHeight: "23px",
-  color: "#6A6A6A",
+export const PrimaryPageStyle: FlexProps = {
+  px: "18vw",
+  bgColor: "white",
+  mx: "2.3em",
+  pt: "2rem",
+  h: "31rem",
 };
 
-export const InputBoxStyle: InputProps = {
-  // display: "flex",
-  // flexDirection: "row",
-  // alignItems: "center",
-  padding: "16px 24px",
-  isolation: "isolate", //TODO!! no need
-  // width: "341px",
-  // height: "48px",
-  // background: "#FFFFFF",
-  border: "1px solid #EAEAEA",
-  borderRadius: "24px",
-  // placeholder
+export const PrimarySectionContentStyle: FlexProps = {
+  className: "left-side",
+  direction: "column",
+  justifyContent: "center",
+  w: "43.5rem",
+  px: "2rem",
+};
 
+export const PrimaryLabelStyle: TextProps = {
   fontFamily: "Inter",
   fontStyle: "normal",
-  fontWeight: "600",
-  fontSize: "16px",
-  lineHeight: "23px",
-  color: "#6A6A6A",
+  fontWeight: "700",
+  fontSize: "12px",
+  lineHeight: "12px",
+  letterSpacing: "0.19em",
+  textTransform: "uppercase",
+  color: DEFAULT_FONT_COLOR,
+};
 
-  //   font-family: 'Inter';
-  // font-style: normal;
-  // font-weight: 600;
-  // font-size: 16px;
-  // line-height: 16px;
-  // /* identical to box height, or 100% */
+export const PrimaryTitleStyle: TextProps = {
+  fontFamily: "Merriweather",
+  fontStyle: "normal",
+  fontWeight: "700",
+  fontSize: "32px",
+  lineHeight: "32px",
+};
 
-  // color: #242424;
+export const PrimaryIconStyle: FlexProps = {
+  borderRadius: "full",
+  w: "3.75rem",
+  h: "3.75rem",
+  justify: "center",
+  alignItems: "center",
+  mr: "1rem",
+};
+
+export const SecondaryPageStyle: FlexProps = {
+  position: "relative",
+  overflow: "hidden",
+  h: "45rem",
+  px: APP_PADDING,
+  alignItems: "center",
+  direction: "column",
+};
+
+export const SecondaryImgStyle: ImgProps = {
+  alt: "bg",
+  position: "absolute",
+  rounded: "full",
+  right: "-14rem",
+  top: "-1rem",
+  opacity: "0.05",
+  h: "50rem",
+  sx: {
+    filter: "grayscale(90%)",
+  },
+};
+
+export const SecondaryIconBg: SquareProps = {
+  rounded: "full",
+  size: "7.5rem",
+  mt: "4rem",
 };
