@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import Hero from "../components/Hero";
+import Hero from "../components/hero/Hero";
 import { FILE_PATHS } from "../utils/consts";
 import { getPath } from "../utils/helpers";
 import Main from "./Main";

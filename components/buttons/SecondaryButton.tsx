@@ -1,22 +1,27 @@
 import { Button, Text, useBoolean } from "@chakra-ui/react";
 import React from "react";
-import { ButtonContentStyle, SecondaryButtonLinkStyle } from "../styles/style";
-import CustomIcon from "./CustomIcon";
-import { ArrowRight } from "./icons/ArrowRight";
-import { Icon1 } from "./icons/Icon1";
-import { PrimaryButtonProps } from "./PrimaryButton";
+import CustomIcon from "../CustomIcon";
+import { ArrowRight } from "../icons/ArrowRight";
+import { SecondaryButtonLinkStyle, ButtonContentStyle } from "./style";
 
 type SecondaryButtonProps = {
   label: string;
   color: string;
   icon: string;
+  width?: string;
 };
-const SecondaryButton = ({ label, color, icon }: SecondaryButtonProps) => {
+const SecondaryButton = ({
+  label,
+  color,
+  icon,
+  width,
+}: SecondaryButtonProps) => {
   const [isHover, setHover] = useBoolean();
 
   return (
     <Button
       {...SecondaryButtonLinkStyle}
+      width={width}
       onMouseEnter={setHover.on}
       onMouseLeave={setHover.off}
       leftIcon={

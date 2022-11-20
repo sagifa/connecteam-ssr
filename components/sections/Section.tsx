@@ -4,6 +4,7 @@ import SectionRegular from "./SectionRegular";
 import SectionFullColor from "./SectionFullColor";
 
 export const parseHtml = (value: string) => {
+  // add break line after closing paragraph
   let res;
   res = value.replaceAll("</p>", "</p><br/>");
   if (res.slice(-5) === "<br/>") {
@@ -41,7 +42,7 @@ const Section = ({
 }: SectionWrapperProps) => {
   const titleFileFormat = title.toLowerCase().replaceAll(" ", "-");
   const descriptionWithBreakLine = parseHtml(description);
-  const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg";
+  const urlPhoto = BASE_URL + "/jpg/" + titleFileFormat + "-small.jpg"; // TODO!! need to select via user screen
 
   return layout == "regular" ? (
     <SectionRegular
@@ -63,9 +64,7 @@ const Section = ({
       descriptionHtml={descriptionWithBreakLine}
       linkLabel={linkLabel || ""}
       urlPhoto={urlPhoto}
-      additionalLinks={
-        additionalLinks ? additionalLinks : [{ href: "", label: "", icon: "" }]
-      }
+      additionalLinks={additionalLinks || [{ href: "", label: "", icon: "" }]}
     />
   );
 };

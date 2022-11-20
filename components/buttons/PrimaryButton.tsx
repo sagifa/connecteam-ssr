@@ -1,12 +1,9 @@
 import { Button, Text } from "@chakra-ui/react";
 import React from "react";
-import { ButtonContentStyle, PrimaryButtonLinkStyle } from "../styles/style";
-import {
-  getBackgroundColor,
-  getHoverColor,
-  getHoverSecondaryColor,
-} from "../utils/helpers";
-import { ArrowRight } from "./icons/ArrowRight";
+import { getHoverSecondaryColor, getHoverColor } from "../../utils/helpers";
+import { ArrowRight } from "../icons/ArrowRight";
+
+import { ButtonContentStyle, PrimaryButtonLinkStyle } from "./style";
 
 export type PrimaryButtonProps = {
   label: string;

@@ -15,7 +15,7 @@ type CircleImageProps = {
   isRtl: boolean;
 };
 const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
-  const bgColor = getBackgroundColor(color);
+  // const bgColor = getBackgroundColor(color); TODO!! need to add the bgcolor to the banner that on the image
   const iconColor = getHoverSecondaryColor(color);
   return (
     <Box position="relative" h="28.3rem">
@@ -47,7 +47,6 @@ const CircleImage = ({ icon, url, color, isRtl }: CircleImageProps) => {
           left={isRtl ? "1.5rem" : ""}
           backdropFilter="blur(8px)"
           border="4px solid #FFFFFF"
-          // opacity=".5"
         >
           <CustomIcon
             name={icon}

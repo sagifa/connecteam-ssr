@@ -1,13 +1,14 @@
 import { Box, Circle, Flex, HStack, Img, Text, VStack } from "@chakra-ui/react";
 import React from "react";
-import { MainContainerStyle } from "../../styles/style";
+import { getPrimaryColor, getSecondaryColor } from "../../utils/helpers";
+import PrimaryButton from "../buttons/PrimaryButton";
+import SecondaryButton from "../buttons/SecondaryButton";
 import CustomIcon from "../CustomIcon";
-import PrimaryButton from "../PrimaryButton";
-import SecondaryButton from "../SecondaryButton";
-import ShowHtml from "../ShowHtml";
 import {
-  DescriptionSecondaryStyle,
   LabelSecondaryStyle,
+  SecondaryIconBg,
+  SecondaryImgStyle,
+  SecondaryPageStyle,
   SeparateSecondaryStyle,
   TitleSecondaryStyle,
 } from "./style";
@@ -37,70 +38,46 @@ const SectionFullColor = ({
   additionalLinks,
   urlPhoto,
 }: SectionProps) => {
-  const primaryColor = `hsl(${colorHue},100%,43%,1)`;
-  const secondaryColor = `hsl(${colorHue},100%,21%,1)`;
-  //TODO!! add width to all content + flex. add const space 2rem and use it here
+  const primaryColor = getPrimaryColor(colorHue);
+  const secondaryColor = getSecondaryColor(colorHue);
   return (
-    <Box position="relative" overflow="hidden" h="46rem" pt="3rem">
-      <Flex
-        {...MainContainerStyle}
-        bgColor={secondaryColor}
-        h="46rem"
-        align="center"
-        direction="column"
-        // mt="5rem"
-        id={title}
-      >
-        <Img
-          src={urlPhoto}
-          alt="bg"
-          position="absolute"
-          rounded="full"
-          right="-11rem"
-          opacity="0.05"
-          h="46rem"
-          sx={{
-            filter: "grayscale(90%)",
+    <Flex id={title} {...SecondaryPageStyle} bgColor={secondaryColor}>
+      <Img src={urlPhoto} {...SecondaryImgStyle} />
+      <Circle bgColor={primaryColor} {...SecondaryIconBg}>
+        <CustomIcon name={icon} props={{ color: "white", boxSize: "4.5rem" }} />
+      </Circle>
+      <Text {...LabelSecondaryStyle}>{label}</Text>
+      <Text {...TitleSecondaryStyle} color={primaryColor}>
+        {title}
+      </Text>
+      <VStack width="71.5rem" spacing="2rem">
+        <div
+          dangerouslySetInnerHTML={{ __html: descriptionHtml }}
+          style={{
+            fontFamily: "Inter",
+            fontWeight: "500",
+            fontSize: "19px",
+            lineHeight: "22px",
+            textAlign: "center",
+            color: "white",
+            marginTop: "2rem",
           }}
         />
-        <Circle bgColor={primaryColor} rounded="full" size="7.5rem" mt="4rem">
-          <CustomIcon
-            name={icon}
-            props={{ color: "white", boxSize: "4.5rem" }}
-          />
-        </Circle>
-        <Text {...LabelSecondaryStyle}>{label}</Text>
-        <Text {...TitleSecondaryStyle} color={primaryColor}>
-          {title}
-        </Text>
-        <VStack width="71.5rem" spacing="2rem">
-          <div
-            dangerouslySetInnerHTML={{ __html: descriptionHtml }}
-            style={{
-              fontFamily: "Inter",
-              fontWeight: "500",
-              fontSize: "19px",
-              lineHeight: "22px",
-              textAlign: "center",
-              color: "white",
-              marginTop: "2rem",
-            }}
-          />
-          <Box {...SeparateSecondaryStyle} />
-          <HStack gap="1rem">
-            <PrimaryButton label={linkLabel} colorHue={colorHue} />
-            {additionalLinks.map((btn) => (
-              <SecondaryButton
-                label={btn.label}
-                icon={btn.icon}
-                color={primaryColor}
-                key={btn.label}
-              />
-            ))}
-          </HStack>
-        </VStack>
-      </Flex>
-    </Box>
+        <Box {...SeparateSecondaryStyle} />
+        <HStack gap="1rem">
+          <PrimaryButton label={linkLabel} colorHue={colorHue} />
+          {additionalLinks.map((btn) => (
+            <SecondaryButton
+              key={btn.label}
+              label={btn.label}
+              icon={btn.icon}
+              color={primaryColor}
+              width="15rem"
+            />
+          ))}
+        </HStack>
+      </VStack>
+    </Flex>
   );
 };
 

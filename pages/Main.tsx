@@ -1,8 +1,8 @@
 import { Box, Flex, VStack } from "@chakra-ui/react";
 import React from "react";
-import Hero from "../components/Hero";
+import Hero from "../components/hero/Hero";
 import Section from "../components/sections/Section";
-import Form from "../components/footer/Form";
+import Form from "../components/form/Form";
 import NavBar from "../components/NavBar";
 
 export type SectionData = {
@@ -27,14 +27,14 @@ const getNavData = (sections: any) =>
   }));
 
 const Main = ({ sections, home, footer }: any) => {
-  if (!sections) return <></>;
+  if (!sections || !home || !footer) return <></>;
 
   let isRtl = true;
   const navbarData = getNavData(sections);
 
   return (
     <Flex direction="column">
-      <Hero />
+      <Hero data={home} />
       <NavBar data={navbarData} />
       <VStack overflow="hidden">
         {sections.map((section: any, index: any) => {

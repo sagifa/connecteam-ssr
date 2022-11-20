@@ -11,13 +11,15 @@ import {
   Select,
 } from "@chakra-ui/react";
 import React from "react";
-import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
+import { MainContainerStyle } from "../../styles/style";
 import { ArrowRight } from "../icons/ArrowRight";
-import { FormTitleStyle, TitleStyle } from "../sections/style";
 import { MAIN_COLOR } from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
 import { ArrowSelect } from "../icons/ArrowSelect";
 import RadioInput from "../RadioInput";
+import { TitleStyle } from "../hero/style";
+import { ButtonContentStyle } from "../buttons/style";
+import { FormTitleStyle } from "./style";
 const Form = (footerData: any) => {
   return (
     <Flex {...MainContainerStyle} mt="8rem" h="41.5rem">
