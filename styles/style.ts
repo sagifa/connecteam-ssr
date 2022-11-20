@@ -21,13 +21,6 @@ export const InterNormalStyle: ChakraProps = {
 };
 
 export const theme = extendTheme({
-  field: {
-    bg: "blue",
-    borderColor: "gray.300",
-    _placeholder: {
-      color: "red.500",
-    },
-  },
   components: {
     Form: {
       variants: {
@@ -37,6 +30,8 @@ export const theme = extendTheme({
               label: {
                 transform: "scale(0.81) translateY(-24px)",
                 color: "#FF9900",
+                backgroundColor: "#FBFBFB",
+                clipPath: "content-box",
               },
             },
 
@@ -50,7 +45,6 @@ export const theme = extendTheme({
               left: 0,
               zIndex: 2,
               position: "absolute",
-              backgroundColor: "white",
               pointerEvents: "none",
               mx: "1.5rem",
               px: "1",

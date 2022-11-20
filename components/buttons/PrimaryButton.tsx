@@ -9,8 +9,9 @@ export type PrimaryButtonProps = {
   label: string;
   colorHue: number;
   width?: string;
+  mt?: string;
 };
-const PrimaryButton = ({ label, colorHue, width }: PrimaryButtonProps) => {
+const PrimaryButton = ({ label, colorHue, width, mt }: PrimaryButtonProps) => {
   const backgroundColor = getHoverSecondaryColor(colorHue);
   const hoverColor = getHoverColor(colorHue);
 
@@ -18,6 +19,7 @@ const PrimaryButton = ({ label, colorHue, width }: PrimaryButtonProps) => {
     <Button
       {...PrimaryButtonLinkStyle}
       width={width}
+      mt={mt}
       bgColor={backgroundColor}
       rightIcon={<ArrowRight color="white" ml="0.5rem" />}
       _hover={{ bgColor: hoverColor }}

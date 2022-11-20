@@ -9,7 +9,7 @@ import {
   Circle,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { APP_PADDING, HERO_H_REM } from "../../utils/consts";
+import { APP_PADDING, APP_WIDTH, HERO_H_REM } from "../../utils/consts";
 
 import {
   ButtonsBoxStyle,
@@ -29,7 +29,12 @@ const Hero = (heroData: any) => {
   //TODO!! edit bg image to darker
   //TODO!! change to custom color theme
   return (
-    <Flex px={APP_PADDING} h={`${HERO_H_REM}rem`} position="relative">
+    <Flex
+      px={APP_PADDING}
+      h={`${HERO_H_REM}rem`}
+      w={APP_WIDTH}
+      position="relative"
+    >
       <Image
         alt="background"
         src={backgroundUrl}

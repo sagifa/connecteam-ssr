@@ -7,7 +7,6 @@ export const TitleStyle: TextProps = {
   lineHeight: "106%",
   color: "rgba(255, 255, 255, 1)",
   fontFamily: "Merriweather",
-  pt: "6.3rem",
 };
 
 export const SubtitleStyle: TextProps = {

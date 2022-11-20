@@ -8,19 +8,39 @@ import {
   FormLabel,
   FormLabelProps,
   Select,
+  useRadioGroup,
+  HStack,
+  TextProps,
+  Textarea,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { MainContainerStyle } from "../../styles/style";
-import { MAIN_COLOR } from "../../utils/consts";
+import { APP_PADDING, MAIN_COLOR } from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
 import { ArrowSelect } from "../icons/ArrowSelect";
-import RadioInput from "../RadioInput";
+import RadioInput from "../RadioButton";
 import { TitleStyle } from "../hero/style";
-import { FormTitleStyle } from "./style";
+import {
+  FormIntroTitleStyle,
+  FormTitleStyle,
+  RadioButtonTitleStyle,
+} from "./style";
 import CustomLink from "../CustomLink";
+import RadioButton from "../RadioButton";
+import PrimaryButton from "../buttons/PrimaryButton";
 const Form = (footerData: any) => {
+  const [selected, setSelected] = useState("");
+  const options = ["react", "vue", "svelte"];
+
+  const { getRootProps, getRadioProps } = useRadioGroup({
+    name: "framework",
+    onChange: setSelected,
+  });
+
+  const group = getRootProps();
+
   return (
-    <Flex {...MainContainerStyle} mt="8rem" h="41.5rem">
+    <Flex px={APP_PADDING} mt="4rem" pt="4rem" h="41.5rem" bgColor="#F8F8F8">
       <Flex
         className="left-side"
         w="25.25rem"
@@ -28,7 +48,7 @@ const Form = (footerData: any) => {
         direction="column"
         mr="2.5rem"
       >
-        <Text {...TitleStyle} color={MAIN_COLOR}>
+        <Text {...FormIntroTitleStyle} color={MAIN_COLOR}>
           {footerData.data.intro.title}
         </Text>
         <div
@@ -72,6 +92,7 @@ const Form = (footerData: any) => {
                 border="1px solid #EAEAEA"
                 borderRadius="1.5rem"
                 focusBorderColor={MAIN_COLOR}
+                bgColor="white"
               />
               <FormLabel {...PlaceholderStyle}>Facere ipsa quod</FormLabel>
             </FormControl>
@@ -113,9 +134,52 @@ const Form = (footerData: any) => {
               lineHeight="1.4rem"
             />
           </SimpleGrid>
-          <RadioInput />
-          <RadioInput />
-          <RadioInput />
+
+          <Text {...RadioButtonTitleStyle} pl="1.5rem">
+            Dolores nostrum neque quas
+          </Text>
+          <Box
+            background="#FFFFFF"
+            border="1px solid #EAEAEA"
+            borderRadius="24px"
+            overflow="hide"
+            w="44.3rem"
+            p="0.25rem"
+            mt="0.5rem"
+          >
+            <HStack {...group}>
+              {options.map((value) => {
+                const radio = getRadioProps({ value });
+                return (
+                  <RadioButton key={value} {...radio}>
+                    {value}
+                  </RadioButton>
+                );
+              })}
+            </HStack>
+          </Box>
+
+          <FormControl variant="floating" id="first-name" mt="1.5rem">
+            <Textarea
+              color="#6A6A6A"
+              placeholder=" "
+              h="10rem"
+              p="1.5rem"
+              border="1px solid #EAEAEA"
+              borderRadius="1.5rem"
+              focusBorderColor={MAIN_COLOR}
+              bgColor="white"
+              resize="none"
+            />
+            <FormLabel {...PlaceholderStyle}>Facere ipsa quod</FormLabel>
+          </FormControl>
+
+          <PrimaryButton
+            label="dasda"
+            colorHue={36}
+            width="15rem"
+            mt="1.1rem"
+          />
         </Flex>
       </Box>
     </Flex>

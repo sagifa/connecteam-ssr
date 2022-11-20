@@ -62,7 +62,7 @@ export const PrimaryLabelStyle: TextProps = {
   lineHeight: "12px",
   letterSpacing: "0.19em",
   textTransform: "uppercase",
-  color: { DEFAULT_FONT_COLOR },
+  color: DEFAULT_FONT_COLOR,
 };
 
 export const PrimaryTitleStyle: TextProps = {

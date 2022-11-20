@@ -4,6 +4,7 @@ import Hero from "./hero/Hero";
 import Section from "./sections/Section";
 import Form from "./form/Form";
 import NavBar from "./NavBar";
+import { APP_WIDTH } from "../utils/consts";
 
 export type SectionData = {
   title: string;
@@ -32,7 +33,7 @@ const Main = ({ sections, home, footer }: any) => {
   let isRtl = true;
 
   return (
-    <Flex direction="column">
+    <Flex direction="column" w={APP_WIDTH} alignItems="center">
       <Hero data={home} />
       <NavBar data={navbarData} />
       <VStack overflow="hidden">
@@ -51,7 +52,7 @@ const Main = ({ sections, home, footer }: any) => {
         })}
       </VStack>
 
-      {/* <Form data={footer} /> */}
+      <Form data={footer} />
     </Flex>
   );
 };

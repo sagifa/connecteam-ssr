@@ -2,10 +2,10 @@ import { HStack, Flex, Text, Box, Slide } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { HERO_H_REM, REM_SIZE } from "../utils/consts";
 import { getPrimaryColor } from "../utils/helpers";
+import { ButtonContentStyle } from "./buttons/style";
 import CustomIcon from "./CustomIcon";
 
 import { Logo } from "./icons/Logo";
-import { ButtonContentStyle } from "../styles/style";
 
 //TODO!! might add listener to screen resolution change
 type NavBarProps = {
@@ -42,7 +42,7 @@ const NavBar = ({ data }: NavBarProps) => {
   }, []);
 
   return (
-    <Box zIndex="10" position="sticky" top="4.8rem" id={navbarId}>
+    <Box zIndex="10" position="sticky" top="4.8rem" id={navbarId} w="100%">
       <Slide direction="top" in={showLogo} style={{ zIndex: 10 }}>
         <Flex
           h="4.8rem"
