@@ -65,7 +65,12 @@ const SectionFullColor = ({
         />
         <Box {...SeparateSecondaryStyle} />
         <HStack gap="1rem">
-          <PrimaryButton label={linkLabel} colorHue={colorHue} />
+          <PrimaryButton
+            label={linkLabel}
+            colorHue={colorHue}
+            height="3.43rem"
+            width="21.18rem"
+          />
           {additionalLinks.map((btn) => (
             <SecondaryButton
               key={btn.label}
