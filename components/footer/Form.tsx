@@ -1,37 +1,26 @@
 import {
   Box,
-  VStack,
   Flex,
   Link,
   Text,
   Input,
-  Stack,
   SimpleGrid,
   FormControl,
   FormLabel,
-  TextProps,
   FormLabelProps,
   Select,
 } from "@chakra-ui/react";
 import React from "react";
 import { ButtonContentStyle, MainContainerStyle } from "../../styles/style";
-import footerData from "../../public/footer.json";
 import { ArrowRight } from "../icons/ArrowRight";
-import {
-  FormTitleStyle,
-  InputBoxStyle,
-  LabelStyle,
-  TitleStyle,
-} from "../sections/style";
+import { FormTitleStyle, TitleStyle } from "../sections/style";
 import { MAIN_COLOR } from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
-import { Icon1 } from "../icons/Icon1";
 import { ArrowSelect } from "../icons/ArrowSelect";
-const Form = () => {
-  const bgColor = "hsla(0, 0%, 97%, 1)";
-
+import RadioInput from "../RadioInput";
+const Form = (footerData: any) => {
   return (
-    <Flex {...MainContainerStyle} mt="4rem">
+    <Flex {...MainContainerStyle} mt="8rem" h="41.5rem">
       <Flex
         className="left-side"
         w="25.25rem"
@@ -40,11 +29,11 @@ const Form = () => {
         mr="2.5rem"
       >
         <Text {...TitleStyle} color={MAIN_COLOR}>
-          {footerData.intro.title}
+          {footerData.data.intro.title}
         </Text>
         <div
           dangerouslySetInnerHTML={{
-            __html: parseHtml(footerData.intro.text),
+            __html: parseHtml(footerData.data.intro.text),
           }}
           style={{
             fontFamily: "Inter",
@@ -57,7 +46,7 @@ const Form = () => {
         <Link color={MAIN_COLOR} href="#">
           <Flex alignItems="center" justifyContent="start">
             <Text {...ButtonContentStyle} color={MAIN_COLOR}>
-              {footerData.intro.link.label}
+              {footerData.data.intro.link.label}
             </Text>
             <ArrowRight ml="0.6rem" />
           </Flex>
@@ -70,7 +59,7 @@ const Form = () => {
           justifyContent="space-between"
           direction="column"
         >
-          <Text {...FormTitleStyle}>{footerData.form.title}</Text>
+          <Text {...FormTitleStyle}>{footerData.data.form.title}</Text>
           <SimpleGrid
             columns={2}
             spacingX="1.1rem"
@@ -127,6 +116,9 @@ const Form = () => {
               lineHeight="1.4rem"
             />
           </SimpleGrid>
+          <RadioInput />
+          <RadioInput />
+          <RadioInput />
         </Flex>
       </Box>
     </Flex>

@@ -35,8 +35,6 @@ const Main = ({ sections, home, footer }: any) => {
   return (
     <Flex direction="column">
       <Hero />
-      <Form />
-
       <NavBar data={navbarData} />
       <VStack overflow="hidden">
         {sections.map((section: any, index: any) => {
@@ -53,6 +51,7 @@ const Main = ({ sections, home, footer }: any) => {
           );
         })}
       </VStack>
+      <Form data={footer} />
     </Flex>
   );
 };
