@@ -1,43 +1,67 @@
+// @ts-nocheck
+
 import {
   Box,
   Flex,
   Text,
-  Input,
   SimpleGrid,
   FormControl,
   FormLabel,
-  FormLabelProps,
-  Select,
   useRadioGroup,
   HStack,
-  TextProps,
   Textarea,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { MainContainerStyle } from "../../styles/style";
-import { APP_PADDING, MAIN_COLOR } from "../../utils/consts";
+import {
+  APP_PADDING,
+  DEFAULT_FONT_COLOR,
+  MAIN_COLOR,
+} from "../../utils/consts";
 import { parseHtml } from "../sections/Section";
-import { ArrowSelect } from "../icons/ArrowSelect";
-import RadioInput from "../RadioButton";
-import { TitleStyle } from "../hero/style";
+
 import {
   FormIntroTitleStyle,
   FormTitleStyle,
   RadioButtonTitleStyle,
+  PlaceholderStyle,
 } from "./style";
 import CustomLink from "../CustomLink";
 import RadioButton from "../RadioButton";
 import PrimaryButton from "../buttons/PrimaryButton";
+import InputField from "./InputField";
+import { useToast } from "@chakra-ui/react";
+
 const Form = (footerData: any) => {
   const [selected, setSelected] = useState("");
-  const options = ["react", "vue", "svelte"];
-
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "framework",
     onChange: setSelected,
   });
-
   const group = getRootProps();
+  const toast = useToast();
+
+  // build array inputs
+  //TODO!!  must improve this func
+  const halfArray = [];
+  let radioTitle;
+  const radioArray = [];
+  const textAreaArray = [];
+
+  footerData.data.form.fields.map((field: any) => {
+    if (field.size == "half") {
+      halfArray.push(field);
+      return;
+    }
+    if (field.type == "options" && field.layout == "buttons") {
+      radioTitle = field.name;
+      radioArray.push(field.options);
+      return;
+    }
+    if (field.type == "textarea") {
+      textAreaArray.push(field);
+      return;
+    }
+  });
 
   return (
     <Flex px={APP_PADDING} mt="4rem" pt="4rem" h="41.5rem" bgColor="#F8F8F8">
@@ -60,7 +84,7 @@ const Form = (footerData: any) => {
             fontWeight: "500",
             fontSize: "19px",
             lineHeight: "23px",
-            color: "#6A6A6A",
+            color: DEFAULT_FONT_COLOR,
           }}
         />
 
@@ -83,72 +107,26 @@ const Form = (footerData: any) => {
             spacingY="1.5rem"
             mt="1.1rem"
           >
-            <FormControl variant="floating" id="first-name">
-              <Input
-                color="#6A6A6A"
-                placeholder=" "
-                w="21.3rem"
-                h="3rem"
-                border="1px solid #EAEAEA"
-                borderRadius="1.5rem"
-                focusBorderColor={MAIN_COLOR}
-                bgColor="white"
-              />
-              <FormLabel {...PlaceholderStyle}>Facere ipsa quod</FormLabel>
-            </FormControl>
-            <FormControl variant="floating" id="first-name">
-              <Input
-                color="#6A6A6A"
-                placeholder=" "
-                w="21.3rem"
-                h="3rem"
-                border="1px solid #EAEAEA"
-                borderRadius="1.5rem"
-                focusBorderColor={MAIN_COLOR}
-              />
-              <FormLabel {...PlaceholderStyle}>Neque sed quisquam</FormLabel>
-            </FormControl>
-            <FormControl variant="floating" id="first-name">
-              <Input
-                color="#6A6A6A"
-                placeholder=" "
-                w="21.3rem"
-                h="3rem"
-                border="1px solid #EAEAEA"
-                borderRadius="1.5rem"
-                focusBorderColor={MAIN_COLOR}
-              />
-              <FormLabel {...PlaceholderStyle}>Quod sunt enim optio</FormLabel>
-            </FormControl>
-            <Select
-              icon={<ArrowSelect mr="1.4rem" />}
-              placeholder="Eius distinctio nobis"
-              w="21.3rem"
-              h="3rem"
-              border="1px solid #EAEAEA"
-              borderRadius="1.5rem"
-              focusBorderColor={MAIN_COLOR}
-              fontFamily="Inter"
-              fontWeight="600"
-              fontSize="1rem"
-              lineHeight="1.4rem"
-            />
+            {halfArray.map((field: any) => {
+              return <InputField key={field.name} {...field} />;
+            })}
           </SimpleGrid>
-
           <Text {...RadioButtonTitleStyle} pl="1.5rem">
-            Dolores nostrum neque quas
+            {radioTitle}
           </Text>
           <Box
             background="#FFFFFF"
             border="1px solid #EAEAEA"
             borderRadius="24px"
             overflow="hide"
-            w="44.3rem"
+            w="44.9rem"
             p="0.25rem"
             mt="0.5rem"
           >
             <HStack {...group}>
-              {options.map((value) => {
+              {radioArray[0].map((option: any) => {
+                const value = option.label;
+                if (!value) return;
                 const radio = getRadioProps({ value });
                 return (
                   <RadioButton key={value} {...radio}>
@@ -161,7 +139,7 @@ const Form = (footerData: any) => {
 
           <FormControl variant="floating" id="first-name" mt="1.5rem">
             <Textarea
-              color="#6A6A6A"
+              color={DEFAULT_FONT_COLOR}
               placeholder=" "
               h="10rem"
               p="1.5rem"
@@ -171,15 +149,27 @@ const Form = (footerData: any) => {
               bgColor="white"
               resize="none"
             />
-            <FormLabel {...PlaceholderStyle}>Facere ipsa quod</FormLabel>
+            <FormLabel {...PlaceholderStyle}>{textAreaArray[0].name}</FormLabel>
           </FormControl>
-
-          <PrimaryButton
-            label="dasda"
-            colorHue={36}
-            width="15rem"
-            mt="1.1rem"
-          />
+          <Box
+            onClick={() =>
+              toast({
+                title: "Hope you enjoyed my project.",
+                description: "crossing fingers",
+                status: "success",
+                duration: 9000,
+                isClosable: true,
+              })
+            }
+          >
+            <PrimaryButton
+              label={footerData.data.form.submitLabel}
+              colorHue={36}
+              width="15rem"
+              mt="1.1rem"
+              type="submit"
+            />
+          </Box>
         </Flex>
       </Box>
     </Flex>
@@ -187,12 +177,3 @@ const Form = (footerData: any) => {
 };
 
 export default Form;
-export const PlaceholderStyle: FormLabelProps = {
-  fontFamily: "Inter",
-  fontWeight: "600",
-  fontSize: "1rem",
-  lineHeight: "1.4rem",
-  color: "#242424",
-  alignContent: "center",
-  justifyContent: "center",
-};

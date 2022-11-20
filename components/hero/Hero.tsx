@@ -49,7 +49,9 @@ const Hero = (heroData: any) => {
           <Box pt="4rem">
             <Img src="/logo.svg" alt="logo" width="20rem" />
           </Box>
-          <Text {...TitleStyle}>{heroData.data.content.hero.title}</Text>
+          <Text {...TitleStyle} mt="6.3rem">
+            {heroData.data.content.hero.title}
+          </Text>
           <Text {...SubtitleStyle}>{heroData.data.content.hero.subtitle}</Text>
           <Flex {...ButtonsBoxStyle}>
             {heroData.data.content.hero.links.map((btn: any) => {

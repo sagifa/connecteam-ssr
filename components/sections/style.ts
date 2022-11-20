@@ -85,8 +85,7 @@ export const PrimaryIconStyle: FlexProps = {
 export const SecondaryPageStyle: FlexProps = {
   position: "relative",
   overflow: "hidden",
-  h: "46rem",
-  pt: "3rem",
+  h: "45rem",
   px: APP_PADDING,
   alignItems: "center",
   direction: "column",

@@ -51,7 +51,6 @@ const Main = ({ sections, home, footer }: any) => {
           );
         })}
       </VStack>
-
       <Form data={footer} />
     </Flex>
   );

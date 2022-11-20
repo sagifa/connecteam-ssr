@@ -1,4 +1,4 @@
-import { TextProps } from "@chakra-ui/react";
+import { FormLabelProps, TextProps } from "@chakra-ui/react";
 import { DEFAULT_FONT_COLOR } from "../../utils/consts";
 
 export const FormTitleStyle: TextProps = {
@@ -35,4 +35,14 @@ export const RadioButtonOptionStyle: TextProps = {
   lineHeight: "1rem",
   color: DEFAULT_FONT_COLOR,
   textAlign: "center",
+};
+
+export const PlaceholderStyle: FormLabelProps = {
+  fontFamily: "Inter",
+  fontWeight: "600",
+  fontSize: "1rem",
+  lineHeight: "1.4rem",
+  color: "#242424",
+  alignContent: "center",
+  justifyContent: "center",
 };
