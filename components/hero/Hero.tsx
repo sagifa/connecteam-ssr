@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Flex, Text, Box, Img, Circle, Collapse } from "@chakra-ui/react";
+import React from "react";
+import { Flex, Text, Box, Img } from "@chakra-ui/react";
 import Image from "next/image";
 import {
   APP_MAIN_COLOR_HUE,
@@ -7,25 +7,16 @@ import {
   APP_WIDTH,
   HERO_H_REM,
 } from "../../utils/consts";
-import {
-  ButtonsBoxStyle,
-  ScrollButtonStyle,
-  SubtitleStyle,
-  TitleStyle,
-} from "./style";
+import { ButtonsBoxStyle, SubtitleStyle, TitleStyle } from "./style";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { getHoverSecondaryColor, getPath } from "../../utils/helpers";
-import { handleClickScroll } from "../NavBar";
-import { ArrowDownAlt } from "../icons/ArrowDownAlt";
+import ButtonArrowsAnimation from "./ButtonArrowsAnimation";
 
 const Hero = (heroData: any) => {
-  const [isHover, setIsHover] = useState(false);
   const backgroundUrl = getPath("home-large.jpg", "jpg");
   const color = getHoverSecondaryColor(APP_MAIN_COLOR_HUE);
-  const handleClick = () => {
-    handleClickScroll("form-section");
-  };
+
   return (
     <Flex
       px={APP_PADDING}
@@ -71,49 +62,7 @@ const Hero = (heroData: any) => {
               );
             })}
           </Flex>
-          <Circle
-            {...ScrollButtonStyle}
-            onClick={handleClick}
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            position="relative"
-          >
-            <ArrowDownAlt
-              top="20%"
-              left="30%"
-              position="absolute"
-              color="white"
-              cursor="pointer"
-              _hover={{
-                color: color,
-                transform: "scale(1)",
-              }}
-            />
-            <Collapse in={isHover}>
-              <ArrowDownAlt
-                top="35%"
-                left="30%"
-                position="absolute"
-                color="white"
-                cursor="pointer"
-                _hover={{
-                  color: color,
-                  transform: "scale(1)",
-                }}
-              />
-              <ArrowDownAlt
-                top="50%"
-                left="30%"
-                position="absolute"
-                color="white"
-                cursor="pointer"
-                _hover={{
-                  color: color,
-                  transform: "scale(1)",
-                }}
-              />
-            </Collapse>
-          </Circle>
+          <ButtonArrowsAnimation colorHue={APP_MAIN_COLOR_HUE} />
         </Box>
       </Flex>
     </Flex>
