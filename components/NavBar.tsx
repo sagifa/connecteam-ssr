@@ -19,7 +19,7 @@ export const handleClickScroll = (id: string) => {
       element.getBoundingClientRect().top +
       window.scrollY -
       navHight -
-      navHight * 0.1;
+      navHight * 1.1;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 };
