@@ -14,7 +14,7 @@ const RadioButton = (props: any) => {
       <Flex
         {...checkbox}
         cursor="pointer"
-        w="14.4rem"
+        w="14rem"
         h="2.5rem"
         p="0.75rem"
         alignItems="center"

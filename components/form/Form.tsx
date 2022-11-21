@@ -116,28 +116,27 @@ const Form = (footerData: any) => {
           <Text {...RadioButtonTitleStyle} pl="1.5rem">
             {radioTitle}
           </Text>
-          <Box
+          <HStack
             background="#FFFFFF"
             border="1px solid #EAEAEA"
             borderRadius="24px"
             overflow="hide"
-            w="44.9rem"
+            w="43.75rem"
             p="0.25rem"
             mt="0.5rem"
+            {...group}
           >
-            <HStack {...group}>
-              {radioArray[0].map((option: any) => {
-                const value = option.label;
-                if (!value) return;
-                const radio = getRadioProps({ value });
-                return (
-                  <RadioButton key={value} {...radio}>
-                    {value}
-                  </RadioButton>
-                );
-              })}
-            </HStack>
-          </Box>
+            {radioArray[0].map((option: any) => {
+              const value = option.label;
+              if (!value) return;
+              const radio = getRadioProps({ value });
+              return (
+                <RadioButton key={value} {...radio}>
+                  {value}
+                </RadioButton>
+              );
+            })}
+          </HStack>
           <FormControl variant="floating" id="first-name" mt="1.5rem">
             <Textarea
               color={DEFAULT_FONT_COLOR}
