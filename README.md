@@ -5,8 +5,6 @@ Since Nextjs isn't very good at handling SVGs, I tried to minimize this renderin
 My favorite part of the JSON logic is how it fills up the page content with dynamic reusable components and styles, except for the footer section, as I didn't have the time to complete the task fully.
 
 
-I didn't do the following:
-Few of the SVGs didn't work on Figma, and I didn't want to use third-party SVGs, so it was a new challenge for me to build components with not fixed SVGs from Figma
 
 If you give me the chance, I would like to try my skills in responsive design.
 
