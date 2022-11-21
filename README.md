@@ -2,9 +2,7 @@ The home task was fun and good practice for me to enter the world of static rend
 
 In addition, the design library I use Chakra-UI has a photo component for SSR
 Since Nextjs isn't very good at handling SVGs, I tried to minimize this rendering with build components -> /components/icons/.
-My favorite part of the JSON logic is how it fills up the page content with dynamic reusable components and styles, except for the footer section, as I didn't have the time to complete the task fully.
-
-
+My favorite part of the JSON logic is how it fills up the page, I tried the app to be responsive to further JSONs with similar cunstructioni, i handle the JSON content with dynamic reusable components and styles, except for the footer section, as I didn't have the time to complete the task fully.
 
 If you give me the chance, I would like to try my skills in responsive design.
 
