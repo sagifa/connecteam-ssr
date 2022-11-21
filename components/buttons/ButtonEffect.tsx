@@ -11,7 +11,7 @@ import CustomIcon from "../CustomIcon";
 import { ArrowRight } from "../icons/ArrowRight";
 import { SecondaryButtonLinkStyle } from "./style";
 
-const SecondaryButton = ({
+const ButtonEffect = ({
   icon,
   label,
   props,
@@ -27,12 +27,12 @@ const SecondaryButton = ({
     <Button
       {...SecondaryButtonLinkStyle}
       {...props}
-      gap="0.7rem"
+      gap="1rem"
       borderColor={themeColor}
       onMouseEnter={setHover.on}
       onMouseLeave={setHover.off}
     >
-      <SlideFade in={!isHover}>
+      <SlideFade in={isHover}>
         <CustomIcon
           name={icon}
           props={{
@@ -43,11 +43,11 @@ const SecondaryButton = ({
         />
       </SlideFade>
       <Text color={themeColor}>{label}</Text>
-      <SlideFade in={isHover}>
+      <SlideFade in={!isHover}>
         <ArrowRight color={themeColor} transform="translateY(-0.1rem)" />
       </SlideFade>
     </Button>
   );
 };
 
-export default SecondaryButton;
+export default ButtonEffect;

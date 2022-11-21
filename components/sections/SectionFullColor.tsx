@@ -76,8 +76,7 @@ const SectionFullColor = ({
               key={btn.label}
               label={btn.label}
               icon={btn.icon}
-              color={primaryColor}
-              width="15rem"
+              props={{ color: primaryColor, width: "15rem" }}
             />
           ))}
         </HStack>

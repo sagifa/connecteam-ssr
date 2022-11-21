@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Flex, Text, Box, Img, Circle, Collapse } from "@chakra-ui/react";
 import Image from "next/image";
-import { APP_PADDING, APP_WIDTH, HERO_H_REM } from "../../utils/consts";
+import {
+  APP_MAIN_COLOR_HUE,
+  APP_PADDING,
+  APP_WIDTH,
+  HERO_H_REM,
+} from "../../utils/consts";
 import {
   ButtonsBoxStyle,
   ScrollButtonStyle,
@@ -10,20 +15,14 @@ import {
 } from "./style";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
-import {
-  getHoverSecondaryColor,
-  getPath,
-  getPrimaryColor,
-} from "../../utils/helpers";
+import { getHoverSecondaryColor, getPath } from "../../utils/helpers";
 import { handleClickScroll } from "../NavBar";
 import { ArrowDownAlt } from "../icons/ArrowDownAlt";
 
 const Hero = (heroData: any) => {
   const [isHover, setIsHover] = useState(false);
   const backgroundUrl = getPath("home-large.jpg", "jpg");
-  const colorHue = 36;
-  const primaryColor = getPrimaryColor(colorHue);
-  const hoverColor = getHoverSecondaryColor(colorHue);
+  const color = getHoverSecondaryColor(APP_MAIN_COLOR_HUE);
   const handleClick = () => {
     handleClickScroll("form-section");
   };
@@ -58,17 +57,16 @@ const Hero = (heroData: any) => {
                 <PrimaryButton
                   key={btn.label}
                   label={btn.label}
-                  colorHue={colorHue}
+                  colorHue={APP_MAIN_COLOR_HUE}
                   width="13.5rem"
                   height="3.4rem"
                 />
               ) : (
                 <SecondaryButton
                   key={btn.label}
+                  icon={btn.icon}
                   label={btn.label}
-                  color={primaryColor}
-                  icon={btn.icon || ""}
-                  width="13.3rem"
+                  props={{ color: color, w: "13.3rem", h: "3.4rem" }}
                 />
               );
             })}
@@ -81,36 +79,36 @@ const Hero = (heroData: any) => {
             position="relative"
           >
             <ArrowDownAlt
-              top="15%"
+              top="20%"
               left="30%"
               position="absolute"
               color="white"
               cursor="pointer"
               _hover={{
-                color: hoverColor,
+                color: color,
                 transform: "scale(1)",
               }}
             />
             <Collapse in={isHover}>
               <ArrowDownAlt
-                top="30%"
+                top="35%"
                 left="30%"
                 position="absolute"
                 color="white"
                 cursor="pointer"
                 _hover={{
-                  color: hoverColor,
+                  color: color,
                   transform: "scale(1)",
                 }}
               />
               <ArrowDownAlt
-                top="45%"
+                top="50%"
                 left="30%"
                 position="absolute"
                 color="white"
                 cursor="pointer"
                 _hover={{
-                  color: hoverColor,
+                  color: color,
                   transform: "scale(1)",
                 }}
               />
