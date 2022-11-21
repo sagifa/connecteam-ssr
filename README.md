@@ -6,7 +6,7 @@ My favorite part of the JSON logic is how it fills up the page, I tried the app 
 
 If you give me the chance, I would like to try my skills in responsive design.
 
-In addition, I want to use the scroll button on hero section to collapse and un-collapse the other other sections and footers 
+In addition, I want to use the scroll button on hero section to collapse and un-collapse the other sections and footers 
 
 
 
