@@ -1,4 +1,4 @@
-import { HStack, Flex, Text, Box, Slide } from "@chakra-ui/react";
+import { HStack, Flex, Text, Box, Slide, FlexProps } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { HERO_H_REM, REM_SIZE } from "../utils/consts";
 import { getPrimaryColor } from "../utils/helpers";
@@ -63,24 +63,20 @@ const NavBar = ({ data }: NavBarProps) => {
           const hslColor = getPrimaryColor(item.colorHue);
           return (
             <Flex
+              onClick={() => handleClickScroll(item.title)}
               key={item.title}
               alignItems="center"
               gap="0.37rem"
               cursor="pointer"
-              onClick={() => handleClickScroll(item.title)}
+              transition="all .2s ease-in-out"
               _hover={{
                 transform: "scale(1.3)",
                 background: "rgba(0, 152, 218, 0.07)",
                 borderRadius: "12px",
+                transition: "all .2s ease-in-out",
               }}
             >
-              <Flex
-                h="39px"
-                justify="center"
-                alignItems="center"
-                gap="0.5rem"
-                px="1rem"
-              >
+              <Flex {...BoxStyle}>
                 <CustomIcon name={item.icon} props={{ color: hslColor }} />
                 <Text {...ButtonContentStyle} color={hslColor}>
                   {item.title}
@@ -100,5 +96,13 @@ const StickyStyle: React.CSSProperties = {
     "0px 3px 32px rgba(0, 0, 0, 0.07), 0px 1px 4px rgba(0, 0, 0, 0.07)",
   backdropFilter: "blur(12px)",
   backgroundColor: "white",
+};
+
+const BoxStyle: FlexProps = {
+  h: "2.43rem",
+  justify: "center",
+  alignItems: "center",
+  gap: "0.5rem",
+  px: "1rem",
 };
 export default NavBar;
