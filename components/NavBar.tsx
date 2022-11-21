@@ -68,11 +68,24 @@ const NavBar = ({ data }: NavBarProps) => {
               gap="0.37rem"
               cursor="pointer"
               onClick={() => handleClickScroll(item.title)}
+              _hover={{
+                transform: "scale(1.3)",
+                background: "rgba(0, 152, 218, 0.07)",
+                borderRadius: "12px",
+              }}
             >
-              <CustomIcon name={item.icon} props={{ color: hslColor }} />
-              <Text {...ButtonContentStyle} color={hslColor}>
-                {item.title}
-              </Text>
+              <Flex
+                h="39px"
+                justify="center"
+                alignItems="center"
+                gap="0.5rem"
+                px="1rem"
+              >
+                <CustomIcon name={item.icon} props={{ color: hslColor }} />
+                <Text {...ButtonContentStyle} color={hslColor}>
+                  {item.title}
+                </Text>
+              </Flex>
             </Flex>
           );
         })}
