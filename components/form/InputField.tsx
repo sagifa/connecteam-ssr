@@ -35,6 +35,7 @@ const InputField = ({
             borderRadius="1.5rem"
             focusBorderColor={MAIN_COLOR}
             bgColor="white"
+            cursor="pointer"
           />
           <FormLabel {...PlaceholderStyle}>{name}</FormLabel>
         </FormControl>
