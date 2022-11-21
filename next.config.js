@@ -11,21 +11,6 @@ const nextConfig = {
       },
     ],
   },
-  // experimental: {
-  //   fontLoaders: [
-  //     { loader: "@next/font/google", options: { subsets: ["latin"] } },
-  //   ],
-  // },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack"],
-    });
-
-    return config;
-  },
 };
 
 module.exports = nextConfig;
-
-// https://connecteam.com/static/frontend-home-task/svg/logo.svg
