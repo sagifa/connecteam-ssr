@@ -1,13 +1,5 @@
-import React from "react";
-import {
-  Flex,
-  Text,
-  Box,
-  Img,
-  useDisclosure,
-  Center,
-  Circle,
-} from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Flex, Text, Box, Img, Circle, Collapse } from "@chakra-ui/react";
 import Image from "next/image";
 import { APP_PADDING, APP_WIDTH, HERO_H_REM } from "../../utils/consts";
 import {
@@ -18,17 +10,22 @@ import {
 } from "./style";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
-import { getPath, getPrimaryColor } from "../../utils/helpers";
+import {
+  getHoverSecondaryColor,
+  getPath,
+  getPrimaryColor,
+} from "../../utils/helpers";
 import { handleClickScroll } from "../NavBar";
+import { ArrowDownAlt } from "../icons/ArrowDownAlt";
 
 const Hero = (heroData: any) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const [isHover, setIsHover] = useState(false);
   const backgroundUrl = getPath("home-large.jpg", "jpg");
   const colorHue = 36;
   const primaryColor = getPrimaryColor(colorHue);
+  const hoverColor = getHoverSecondaryColor(colorHue);
   const handleClick = () => {
     handleClickScroll("form-section");
-    onToggle();
   };
   return (
     <Flex
@@ -76,24 +73,48 @@ const Hero = (heroData: any) => {
               );
             })}
           </Flex>
-          <Circle {...ScrollButtonStyle} onClick={handleClick}>
-            <Center>
-              {isOpen ? (
-                <Image
-                  alt="scrollButton"
-                  src="/arrow-scroll-orange.svg"
-                  width="16"
-                  height="16"
-                />
-              ) : (
-                <Image
-                  alt="scrollButton"
-                  src="/arrows-scroll.svg"
-                  width="42"
-                  height="40"
-                />
-              )}
-            </Center>
+          <Circle
+            {...ScrollButtonStyle}
+            onClick={handleClick}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+            position="relative"
+          >
+            <ArrowDownAlt
+              top="15%"
+              left="30%"
+              position="absolute"
+              color="white"
+              cursor="pointer"
+              _hover={{
+                color: hoverColor,
+                transform: "scale(1)",
+              }}
+            />
+            <Collapse in={isHover}>
+              <ArrowDownAlt
+                top="30%"
+                left="30%"
+                position="absolute"
+                color="white"
+                cursor="pointer"
+                _hover={{
+                  color: hoverColor,
+                  transform: "scale(1)",
+                }}
+              />
+              <ArrowDownAlt
+                top="45%"
+                left="30%"
+                position="absolute"
+                color="white"
+                cursor="pointer"
+                _hover={{
+                  color: hoverColor,
+                  transform: "scale(1)",
+                }}
+              />
+            </Collapse>
           </Circle>
         </Box>
       </Flex>
