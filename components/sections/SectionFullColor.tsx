@@ -41,7 +41,7 @@ const SectionFullColor = ({
   const primaryColor = getPrimaryColor(colorHue);
   const secondaryColor = getSecondaryColor(colorHue);
   return (
-    <Flex id={title} {...SecondaryPageStyle} bgColor={secondaryColor} mt="4rem">
+    <Flex id={title} {...SecondaryPageStyle} bgColor={secondaryColor}>
       <Img src={urlPhoto} {...SecondaryImgStyle} />
       <Circle bgColor={primaryColor} {...SecondaryIconBg}>
         <CustomIcon name={icon} props={{ color: "white", boxSize: "4.5rem" }} />

@@ -86,6 +86,7 @@ export const SecondaryPageStyle: FlexProps = {
   position: "relative",
   overflow: "hidden",
   h: "45rem",
+  mt: "4rem",
   px: APP_PADDING,
   alignItems: "center",
   direction: "column",
