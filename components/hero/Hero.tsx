@@ -4,7 +4,6 @@ import Image from "next/image";
 import {
   APP_MAIN_COLOR_HUE,
   APP_PADDING,
-  APP_WIDTH,
   HERO_H_REM,
 } from "../../utils/consts";
 import { ButtonsBoxStyle, SubtitleStyle, TitleStyle } from "./style";
@@ -18,11 +17,11 @@ const Hero = (heroData: any) => {
   const color = getHoverSecondaryColor(APP_MAIN_COLOR_HUE);
 
   return (
-    <Flex
-      px={APP_PADDING}
+    <Box
       h={`${HERO_H_REM}rem`}
-      w={APP_WIDTH}
       position="relative"
+      w="100%"
+      px={["", "", "13%", APP_PADDING]}
     >
       <Image
         alt="background"
@@ -65,7 +64,7 @@ const Hero = (heroData: any) => {
           <ButtonArrowsAnimation colorHue={APP_MAIN_COLOR_HUE} />
         </Box>
       </Flex>
-    </Flex>
+    </Box>
   );
 };
 

@@ -14,6 +14,13 @@ export const InterNormalStyle: ChakraProps = {
 };
 
 export const theme = extendTheme({
+  breakpoints: {
+    sm: "320px",
+    md: "768px",
+    lg: "1920",
+    xl: "2560",
+    "2xl": "3200",
+  },
   components: {
     Form: {
       variants: {

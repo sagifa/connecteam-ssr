@@ -57,6 +57,7 @@ const NavBar = ({ data }: NavBarProps) => {
         h="4.1rem"
         spacing="5.37rem"
         justifyContent="center"
+        mt={showLogo ? "0" : "1rem"}
         style={showLogo ? StickyStyle : {}}
       >
         {data.map((item) => {

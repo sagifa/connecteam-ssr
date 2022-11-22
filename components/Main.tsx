@@ -1,10 +1,9 @@
-import { Box, Flex, VStack } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import Hero from "./hero/Hero";
 import Section from "./sections/Section";
 import Form from "./form/Form";
 import NavBar from "./NavBar";
-import { APP_WIDTH } from "../utils/consts";
 
 export type SectionData = {
   title: string;
@@ -33,7 +32,7 @@ const Main = ({ sections, home, footer }: any) => {
   let isRtl = true;
 
   return (
-    <Flex direction="column" w={APP_WIDTH} alignItems="center">
+    <Flex direction="column" alignItems="center">
       <Hero data={home} />
       <NavBar data={navbarData} />
       <Flex overflow="hidden" direction="column" alignItems="center">
