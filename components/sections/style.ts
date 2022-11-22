@@ -39,7 +39,7 @@ export const SeparateSecondaryStyle: BoxProps = {
 };
 
 export const PrimaryPageStyle: FlexProps = {
-  px: "18vw",
+  // px: "18vw",
   bgColor: "white",
   mx: "2.3em",
   pt: "2rem",
@@ -85,11 +85,13 @@ export const PrimaryIconStyle: FlexProps = {
 export const SecondaryPageStyle: FlexProps = {
   position: "relative",
   overflow: "hidden",
-  h: "45rem",
+  // h: "42.12rem",
   mt: "4rem",
-  px: APP_PADDING,
+  // px: APP_PADDING,
   alignItems: "center",
   direction: "column",
+  pb: "4rem",
+  // w: "100%",
 };
 
 export const SecondaryImgStyle: ImgProps = {

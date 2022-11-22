@@ -50,7 +50,8 @@ const SectionFullColor = ({
       <Text {...TitleSecondaryStyle} color={primaryColor}>
         {title}
       </Text>
-      <VStack width="71.5rem" spacing="2rem">
+      <VStack spacing="2rem" px="20%">
+        {" "}
         <div
           dangerouslySetInnerHTML={{ __html: descriptionHtml }}
           style={{

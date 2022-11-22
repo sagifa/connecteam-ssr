@@ -1,12 +1,7 @@
 import React from "react";
 import { Flex, Text, Box, Img } from "@chakra-ui/react";
 import Image from "next/image";
-import {
-  APP_MAIN_COLOR_HUE,
-  APP_PADDING,
-  APP_WIDTH,
-  HERO_H_REM,
-} from "../../utils/consts";
+import { APP_MAIN_COLOR_HUE, HERO_H_REM } from "../../utils/consts";
 import { ButtonsBoxStyle, SubtitleStyle, TitleStyle } from "./style";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
@@ -18,12 +13,7 @@ const Hero = (heroData: any) => {
   const color = getHoverSecondaryColor(APP_MAIN_COLOR_HUE);
 
   return (
-    <Flex
-      px={APP_PADDING}
-      h={`${HERO_H_REM}rem`}
-      w={APP_WIDTH}
-      position="relative"
-    >
+    <Box px="24.25rem" h={`${HERO_H_REM}rem`} position="relative" w="100vw">
       <Image
         alt="background"
         src={backgroundUrl}
@@ -65,7 +55,7 @@ const Hero = (heroData: any) => {
           <ButtonArrowsAnimation colorHue={APP_MAIN_COLOR_HUE} />
         </Box>
       </Flex>
-    </Flex>
+    </Box>
   );
 };
 
