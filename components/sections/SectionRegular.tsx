@@ -10,7 +10,7 @@ import {
   PrimaryTitleStyle,
   PrimaryIconStyle,
 } from "./style";
-import { DEFAULT_FONT_COLOR } from "../../utils/consts";
+import { APP_PADDING, DEFAULT_FONT_COLOR } from "../../utils/consts";
 import CustomLink from "../CustomLink";
 
 type SectionRegularProps = {
@@ -42,6 +42,7 @@ const SectionRegular = ({
       id={title}
       direction={isRtl ? "row-reverse" : "row"}
       {...PrimaryPageStyle}
+      px={APP_PADDING}
     >
       <Flex {...PrimarySectionContentStyle}>
         <Flex>

@@ -92,6 +92,7 @@ export const SecondaryPageStyle: FlexProps = {
   direction: "column",
   pb: "4rem",
   // w: "100%",
+  px: APP_PADDING,
 };
 
 export const SecondaryImgStyle: ImgProps = {
