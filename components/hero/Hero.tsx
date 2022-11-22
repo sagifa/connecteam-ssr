@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Text, Box, Img } from "@chakra-ui/react";
+import { Flex, Text, Box, Img, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import {
   APP_MAIN_COLOR_HUE,
@@ -13,11 +13,16 @@ import { getHoverSecondaryColor, getPath } from "../../utils/helpers";
 import ButtonArrowsAnimation from "./ButtonArrowsAnimation";
 
 const Hero = (heroData: any) => {
-  const backgroundUrl = getPath("home-large.jpg", "jpg");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
+
+  const backgroundUrl = getPath(
+    `home-${isMobile ? "small" : "large"}.jpg`,
+    "jpg"
+  );
   const color = getHoverSecondaryColor(APP_MAIN_COLOR_HUE);
 
   return (
-    <Box
+    <Flex
       h={`${HERO_H_REM}rem`}
       position="relative"
       w="100%"
@@ -64,7 +69,7 @@ const Hero = (heroData: any) => {
           <ButtonArrowsAnimation colorHue={APP_MAIN_COLOR_HUE} />
         </Box>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
