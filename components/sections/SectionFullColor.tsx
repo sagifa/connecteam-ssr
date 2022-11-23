@@ -67,16 +67,21 @@ const SectionFullColor = ({
     <Flex id={title} {...pageStyle} bgColor={secondaryColor}>
       <Img src={urlPhoto} {...imgStyle} />
       <Box px={isMobile ? "1rem" : ""}>
-        <Circle bgColor={primaryColor} {...iconBgStyle}>
-          <CustomIcon
-            name={icon}
-            props={{ color: "white", boxSize: iconSize }}
-          />
-        </Circle>
-        <Text {...LabelSecondaryStyle}>{label}</Text>
-        <Text {...TitleSecondaryStyle} color={primaryColor}>
-          {title}
-        </Text>
+        <Flex
+          direction="column"
+          alignItems={isMobile ? "flex-start" : "center"}
+        >
+          <Circle bgColor={primaryColor} {...iconBgStyle}>
+            <CustomIcon
+              name={icon}
+              props={{ color: "white", boxSize: iconSize }}
+            />
+          </Circle>
+          <Text {...LabelSecondaryStyle}>{label}</Text>
+          <Text {...TitleSecondaryStyle} color={primaryColor}>
+            {title}
+          </Text>
+        </Flex>
         <VStack spacing="2rem" px={isMobile ? "" : "20%"}>
           {" "}
           <div
