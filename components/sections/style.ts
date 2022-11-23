@@ -44,14 +44,32 @@ export const PrimaryPageStyle: FlexProps = {
   mx: "2.3em",
   pt: "2rem",
   h: "31rem",
+  px: APP_PADDING,
+};
+
+export const PrimaryPageMobileStyle: FlexProps = {
+  // px: "18vw",
+  bgColor: "white",
+  // p: "0px 24px 24px",
+  // h: "60.81rem",
+  w: "25rem",
 };
 
 export const PrimarySectionContentStyle: FlexProps = {
-  className: "left-side",
+  className: "text-content",
   direction: "column",
   justifyContent: "center",
   w: "43.5rem",
   px: "2rem",
+};
+
+export const PrimarySectionContentMobileStyle: FlexProps = {
+  className: "text-content",
+  direction: "column",
+  justifyContent: "center",
+  py: "1rem",
+  // w: "22rem",
+  gap: "18px",
 };
 
 export const PrimaryLabelStyle: TextProps = {
