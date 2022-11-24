@@ -1,4 +1,12 @@
-import { HStack, Flex, Text, Box, Slide, FlexProps } from "@chakra-ui/react";
+import {
+  HStack,
+  Flex,
+  Text,
+  Box,
+  Slide,
+  FlexProps,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { HERO_H_REM, REM_SIZE } from "../utils/consts";
 import { getPrimaryColor } from "../utils/helpers";
@@ -40,22 +48,26 @@ const NavBar = ({ data }: NavBarProps) => {
   }, []);
 
   return (
-    <Box zIndex="10" position="sticky" top="4.8rem" id={navbarId} w="100%">
+    <Flex zIndex="10" position="sticky" top="4.8rem" id={navbarId}>
       <Slide direction="top" in={showLogo} style={{ zIndex: 10 }}>
         <Flex
+          w={{ base: "768px", md: "100%" }}
           h="4.8rem"
-          style={StickyStyle}
           bgColor="white"
           py="1rem"
-          pl="15%"
+          pl={{ base: "5%", md: "15%" }}
           alignItems="center"
+          {...StickyStyle}
+          opacity={{ base: "1", md: "0.92" }}
         >
           <Logo h="2.6rem" width="14rem" />
         </Flex>
       </Slide>
       <HStack
-        h="4.1rem"
-        spacing="5.37rem"
+        boxSizing="content-box"
+        w={{ base: "400px", md: "100vw" }}
+        h={{ base: "41px", md: "4.1rem" }}
+        spacing={{ base: "0rem", md: "5.37rem" }}
         justifyContent="center"
         mt={showLogo ? "0" : "1rem"}
         style={showLogo ? StickyStyle : {}}
@@ -67,7 +79,7 @@ const NavBar = ({ data }: NavBarProps) => {
               onClick={() => handleClickScroll(item.title)}
               key={item.title}
               alignItems="center"
-              gap="0.37rem"
+              // gap="0.37rem"
               cursor="pointer"
               transition="all .2s ease-in-out"
               _hover={{
@@ -79,7 +91,11 @@ const NavBar = ({ data }: NavBarProps) => {
             >
               <Flex {...BoxStyle}>
                 <CustomIcon name={item.icon} props={{ color: hslColor }} />
-                <Text {...ButtonContentStyle} color={hslColor}>
+                <Text
+                  {...ButtonContentStyle}
+                  fontSize={{ base: "17px", md: "19px" }}
+                  color={hslColor}
+                >
                   {item.title}
                 </Text>
               </Flex>
@@ -87,7 +103,7 @@ const NavBar = ({ data }: NavBarProps) => {
           );
         })}
       </HStack>
-    </Box>
+    </Flex>
   );
 };
 
@@ -103,7 +119,7 @@ const BoxStyle: FlexProps = {
   h: "2.43rem",
   justify: "center",
   alignItems: "center",
-  gap: "0.5rem",
-  px: "1rem",
+  gap: { base: "0", md: "0.5rem" },
+  px: { base: "0rem", md: "1rem" },
 };
 export default NavBar;
