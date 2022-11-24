@@ -2,7 +2,7 @@ import { FlexProps, SquareProps, TextProps } from "@chakra-ui/react";
 
 export const TitleStyle: TextProps = {
   fontWeight: "700",
-  fontSize: ["42px", "64px"],
+  fontSize: { base: "42px", md: "64px" },
   lineHeight: "106%",
   color: "rgba(255, 255, 255, 1)",
   fontFamily: "Merriweather",

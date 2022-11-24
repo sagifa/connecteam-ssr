@@ -9,6 +9,8 @@ import {
   useRadioGroup,
   HStack,
   Textarea,
+  useMediaQuery,
+  Stack,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import {
@@ -22,6 +24,14 @@ import {
   FormTitleStyle,
   RadioButtonTitleStyle,
   PlaceholderStyle,
+  PageStyle,
+  PageMobilStyle,
+  ContainerMobileStyle,
+  InfoBoxMobileStyle,
+  InfoBoxStyle,
+  SeparatorMobileStyle,
+  FormFieldsBoxMobileStyle,
+  FormFieldsBoxStyle,
 } from "./style";
 import CustomLink from "../CustomLink";
 import RadioButton from "../RadioButton";
@@ -30,13 +40,17 @@ import InputField from "./InputField";
 import { useToast } from "@chakra-ui/react";
 
 const Form = (footerData: any) => {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(""); //  selected = radio button value
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "framework",
     onChange: setSelected,
   });
   const group = getRootProps();
   const toast = useToast();
+  const [isMobile] = useMediaQuery("(max-width: 768px)", {
+    ssr: true,
+    fallback: false, // return false on the server, and re-evaluate on the client side
+  });
   const halfArray = [];
   let radioTitle;
   const radioArray = [];
@@ -58,24 +72,16 @@ const Form = (footerData: any) => {
     }
   });
 
+  const pageStyle = isMobile ? PageMobilStyle : PageStyle;
+  const containerStyle = isMobile ? ContainerMobileStyle : {};
+  const infoBoxStyle = isMobile ? InfoBoxMobileStyle : InfoBoxStyle;
+  const fieldsContainer = isMobile
+    ? FormFieldsBoxMobileStyle
+    : FormFieldsBoxStyle;
   return (
-    <Flex
-      id="form-section"
-      mt="4rem"
-      py="4rem"
-      h="41.5rem"
-      bgColor="#F8F8F8"
-      justifyContent="center"
-      w="100%"
-    >
-      <Flex px={["", "", "", APP_PADDING]}>
-        <Flex
-          className="left-side"
-          w="25.25rem"
-          gap="2rem"
-          direction="column"
-          mr="2.5rem"
-        >
+    <Flex {...pageStyle}>
+      <Flex {...containerStyle}>
+        <Flex {...infoBoxStyle}>
           <Text {...FormIntroTitleStyle} color={MAIN_COLOR}>
             {footerData.data.intro.title}
           </Text>
@@ -97,16 +103,12 @@ const Form = (footerData: any) => {
             color={MAIN_COLOR}
           />
         </Flex>
+        {isMobile && <Box {...SeparatorMobileStyle} />}
         <Box>
-          <Flex
-            className="right-side"
-            w="43.75rem"
-            justifyContent="space-between"
-            direction="column"
-          >
+          <Flex {...fieldsContainer}>
             <Text {...FormTitleStyle}>{footerData.data.form.title}</Text>
             <SimpleGrid
-              columns={2}
+              columns={isMobile ? 1 : 2}
               spacingX="1.1rem"
               spacingY="1.5rem"
               mt="1.1rem"
@@ -118,14 +120,16 @@ const Form = (footerData: any) => {
             <Text {...RadioButtonTitleStyle} pl="1.5rem">
               {radioTitle}
             </Text>
-            <HStack
+            <Stack
+              direction={isMobile ? "column" : "row"}
               background="#FFFFFF"
               border="1px solid #EAEAEA"
               borderRadius="24px"
               overflow="hide"
-              w="43.75rem"
+              // w="43.75rem"
+              w="100%"
               p="0.25rem"
-              mt="0.5rem"
+              mt={isMobile ? "" : "0.5rem"}
               {...group}
             >
               {radioArray[0].map((option: any) => {
@@ -138,7 +142,7 @@ const Form = (footerData: any) => {
                   </RadioButton>
                 );
               })}
-            </HStack>
+            </Stack>
             <FormControl variant="floating" id="first-name" mt="1.5rem">
               <Textarea
                 color={DEFAULT_FONT_COLOR}
@@ -167,9 +171,9 @@ const Form = (footerData: any) => {
               }
             >
               <PrimaryButton
+                width={isMobile ? "352px" : "15rem"}
                 label={footerData.data.form.submitLabel}
                 colorHue={36}
-                width="15rem"
                 mt="1.1rem"
                 type="submit"
               />

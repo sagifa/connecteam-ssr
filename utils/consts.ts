@@ -11,3 +11,4 @@ export const DEFAULT_FONT_COLOR = "#6A6A6A";
 export const APP_MAIN_COLOR = "hsla(36, 100%, 50%, 1)";
 export const APP_MAIN_COLOR_HUE = 36;
 export const APP_PADDING = "20%";
+export const APP_MOBILE_PADDING = "4%";

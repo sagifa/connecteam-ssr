@@ -2,11 +2,9 @@ import {
   BoxProps,
   FlexProps,
   ImgProps,
-  InputProps,
   SquareProps,
   TextProps,
 } from "@chakra-ui/react";
-import { MainContainerStyle } from "../../styles/style";
 import { APP_PADDING, DEFAULT_FONT_COLOR } from "../../utils/consts";
 
 export const LabelSecondaryStyle: TextProps = {
@@ -35,23 +33,35 @@ export const SeparateSecondaryStyle: BoxProps = {
   mt: "2rem",
   background: "rgba(255, 255, 255, 0.08)",
   borderRadius: "38px",
-  w: "71.5rem",
 };
 
 export const PrimaryPageStyle: FlexProps = {
-  // px: "18vw",
   bgColor: "white",
   mx: "2.3em",
   pt: "2rem",
   h: "31rem",
+  px: APP_PADDING,
+};
+
+export const PrimaryPageMobileStyle: FlexProps = {
+  bgColor: "white",
+  w: "25rem",
 };
 
 export const PrimarySectionContentStyle: FlexProps = {
-  className: "left-side",
+  className: "text-content",
   direction: "column",
   justifyContent: "center",
   w: "43.5rem",
   px: "2rem",
+};
+
+export const PrimarySectionContentMobileStyle: FlexProps = {
+  className: "text-content",
+  direction: "column",
+  justifyContent: "center",
+  py: "1rem",
+  gap: "18px",
 };
 
 export const PrimaryLabelStyle: TextProps = {
@@ -85,14 +95,21 @@ export const PrimaryIconStyle: FlexProps = {
 export const SecondaryPageStyle: FlexProps = {
   position: "relative",
   overflow: "hidden",
-  // h: "42.12rem",
   mt: "4rem",
-  // px: APP_PADDING,
   alignItems: "center",
   direction: "column",
   pb: "4rem",
-  // w: "100%",
   px: APP_PADDING,
+};
+
+export const SecondaryPageMobileStyle: FlexProps = {
+  position: "relative",
+  overflow: "hidden",
+  mt: "1rem",
+  pt: "1rem",
+  alignItems: "flex-start",
+  direction: "column",
+  h: "64.5rem",
 };
 
 export const SecondaryImgStyle: ImgProps = {
@@ -108,8 +125,25 @@ export const SecondaryImgStyle: ImgProps = {
   },
 };
 
+export const SecondaryImgMobileStyle: ImgProps = {
+  alt: "bg",
+  position: "absolute",
+  // right: "-14rem",
+  // top: "-1rem",
+  opacity: "0.15",
+  h: "64.5rem",
+  sx: {
+    filter: "grayscale(90%)",
+  },
+};
+
 export const SecondaryIconBg: SquareProps = {
   rounded: "full",
   size: "7.5rem",
   mt: "4rem",
+};
+
+export const SecondaryIconMobileBg: SquareProps = {
+  rounded: "full",
+  size: "6rem",
 };
