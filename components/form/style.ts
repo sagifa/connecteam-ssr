@@ -1,4 +1,10 @@
-import { FormLabelProps, TextProps } from "@chakra-ui/react";
+import {
+  BoxProps,
+  FlexOptions,
+  FlexProps,
+  FormLabelProps,
+  TextProps,
+} from "@chakra-ui/react";
 import { DEFAULT_FONT_COLOR } from "../../utils/consts";
 
 export const FormTitleStyle: TextProps = {
@@ -45,4 +51,71 @@ export const PlaceholderStyle: FormLabelProps = {
   color: "#242424",
   alignContent: "center",
   justifyContent: "center",
+};
+
+export const PageMobilStyle: FlexProps = {
+  flexDirection: "column",
+  alignItems: "flex-start",
+  padding: "24px 0px",
+  gap: "40px",
+  pt: "2rem",
+  bgColor: "#F8F8F8",
+
+  // px: "1rem",
+};
+
+export const PageStyle: FlexProps = {
+  id: "form-section",
+  mt: "4rem",
+  py: "4rem",
+  h: "41.5rem",
+  bgColor: "#F8F8F8",
+  justifyContent: "center",
+  w: "100%",
+};
+
+export const ContainerMobileStyle: FlexProps = {
+  flexDirection: "column",
+  alignItems: "flex-start",
+  padding: "0px 24px",
+  gap: "40px",
+};
+
+export const InfoBoxStyle: FlexProps = {
+  className: "left-side",
+  w: "25.25rem",
+  gap: "2rem",
+  direction: "column",
+  mr: "2.5rem",
+};
+
+export const InfoBoxMobileStyle: FlexProps = {
+  flexDirection: "column",
+  alignItems: "flex-start",
+  gap: "24px",
+  w: "352px",
+};
+
+export const SeparatorMobileStyle: BoxProps = {
+  width: "352px",
+  height: "2px",
+  background: "rgba(0, 0, 0, 0.08)",
+  borderRadius: "38px",
+};
+
+export const FormFieldsBoxStyle: FlexProps = {
+  className: "right-side",
+  w: "43.75rem",
+  justifyContent: "space-between",
+  direction: "column",
+};
+
+export const FormFieldsBoxMobileStyle: FlexProps = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  padding: "0px",
+  gap: "18px",
+  width: "352px",
+  // height: "844px",
 };
